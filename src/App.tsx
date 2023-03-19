@@ -1,25 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className=' container grid bg-white'>
+      <div style={{padding:"3rem"}} className="bg-accent text-dark">1</div>
+      <div style={{padding:"3rem"}} className="example text-white">1</div>
+      <div style={{padding:"3rem"}} className="bg-dark text-accent">1</div>
     </div>
+  </>
   );
 }
 
