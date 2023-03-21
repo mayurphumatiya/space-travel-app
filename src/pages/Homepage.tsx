@@ -2,12 +2,11 @@ import React from "react";
 
 const Homepage = () => {
   return (
-    <>
-      <div className="grid-container">
+      <div className="grid-container grid-container--home">
         <div>
-          <h1 className="text-accent fs-500 ff-sans-cond uppercase letter-spacing-1">
+          <h1 className="text-accent fs-500 ff-sans-cond uppercase ">
             So, you want to travel to
-            <span className="fs-900 ff-serif text-white">Space</span>
+            <span className="d-block fs-900 ff-serif text-white"> Space</span>
           </h1>
           <p>
             Let’s face it; if you want to go to space, you might as well
@@ -25,7 +24,6 @@ const Homepage = () => {
           </a>
         </div>
       </div>
-    </>
   );
 };
 

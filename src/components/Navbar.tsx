@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <header className='primary-header'>
         <div>
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="space tourism logo" className='logo'/>
         </div>
          <nav>
                         <ul className="primary-navigation underline-indicators flex">
