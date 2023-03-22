@@ -16,12 +16,11 @@ const Homepage = () => {
           </p>
         </div>
         <div>
-          <a
-            href="#"
+          <button
             className="large-button uppercase ff-serif fs-600 text-dark bg-white"
           >
             Explore
-          </a>
+          </button>
         </div>
       </div>
   );
