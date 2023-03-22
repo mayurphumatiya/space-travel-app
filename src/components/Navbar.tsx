@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/shared/logo.svg";
 import { Link } from "react-router-dom";
+import close from "../assets/shared/icon-close.svg";
+import ham from "../assets/shared/icon-hamburger.svg"
 
 const Navbar = () => {
+  const [openNav, setOpenNav] = useState<boolean>(false);
+
+  const hamburgerClick = () =>{
+    setOpenNav(!openNav);
+  }
+
+
   return (
-    <header className="primary-header">
+    <header className="primary-header flex">
       <div>
         <img src={logo} alt="space tourism logo" className="logo" />
       </div>
+      <img src={openNav ? close : ham} alt="navImg" className="mobile-nav-toggle"  onClick={hamburgerClick} aria-controls="primary-navigation" />
       <nav>
-        <ul className="primary-navigation underline-indicators flex">
+         {/* @ts-ignore */}
+        <ul id="primary-navigation" style={{transform: openNav && "translateX(0)"}} className="primary-navigation underline-indicators flex">
           <li className="active">
             <Link
               to="/"
@@ -39,7 +50,7 @@ const Navbar = () => {
               to="/technology"
               className="ff-sans-cond uppercase text-white letter-spacing-2"
             >
-              <span>02</span>Technology
+              <span>03</span>Technology
             </Link>
           </li>
         </ul>

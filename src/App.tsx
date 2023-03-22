@@ -16,21 +16,23 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route index element={<Homepage />} />
         <Route path="/destination" element={<Destination />} />
-        <Route path="/navbar" element={<Navbar />} />
       </Route>
     )
   );
 
   return (
+    <>
     <div className="home">
       <RouterProvider router={router} />
     </div>
+    </>
   );
 }
 
 const Root = () => {
   return (
     <>
+      <Navbar />
       <Outlet />
     </>
   );
