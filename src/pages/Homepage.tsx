@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
@@ -16,11 +17,9 @@ const Homepage = () => {
           </p>
         </div>
         <div>
-          <button
-            className="large-button uppercase ff-serif fs-600 text-dark bg-white"
-          >
-            Explore
-          </button>
+          <div>
+            <Link to="/destination" className="large-button uppercase ff-serif fs-600 text-dark bg-white">Explore</Link>
+          </div>
         </div>
       </div>
   );

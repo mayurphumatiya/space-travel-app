@@ -14,15 +14,15 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route index element={<Homepage />} />
-        <Route path="/destination" element={<Destination />} />
+        <Route index element={<Destination />} />
+        {/* <Route path="/destination" element={<Destination />} /> */}
       </Route>
     )
   );
 
   return (
     <>
-    <div className="home">
+    <div className="destination">
       <RouterProvider router={router} />
     </div>
     </>
