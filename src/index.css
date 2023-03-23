@@ -459,7 +459,7 @@ select {
   padding-bottom: 4rem;
 }
 
-.grid-container * {
+.grid-container p:not([className]) {
   max-width: 50ch;
 }
 
@@ -499,6 +499,10 @@ select {
   margin-top: 2.5rem;
 }
 
+.destination-meta{
+  font-size:1.75rem;
+}
+
 @media (min-width: 35em) {
   .numbered-title {
     justify-self: start;
@@ -536,6 +540,7 @@ select {
 
   .grid-container--destination {
     justify-items: start;
+    align-content:start;
     grid-template-areas:
       ". title title ."
       ". image tabs ."
@@ -546,7 +551,7 @@ select {
     max-width: 90%;
   }
   .destination-meta {
-    --gap:3rem;
+    --gap:min(6vw, 6rem);
     justify-content: start;
 }
 }

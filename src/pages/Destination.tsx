@@ -35,11 +35,11 @@ const Destination = () => {
         <div className="destination-meta flex">
           <div>
             <h3 className="text-accent fs-200 uppercase">Avg. distance</h3>
-            <p className="fs-500 ff-serif uppercase">384,400 km</p>
+            <p className="ff-serif uppercase">384,400 km</p>
           </div>
           <div>
             <h3 className="text-accent fs-200 uppercase">Est. travel time</h3>
-            <p className="fs-500 ff-serif uppercase">3 days</p>
+            <p className="ff-serif uppercase">3 days</p>
           </div>
         </div>
       </article>

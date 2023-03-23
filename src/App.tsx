@@ -9,20 +9,22 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Destination from "./pages/Destination";
+import Crew from "./pages/Crew";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route index element={<Destination />} />
-        {/* <Route path="/destination" element={<Destination />} /> */}
+        <Route index element={<Homepage />} />
+        <Route path="/destination" element={<Destination />} />
+        <Route path="/crew" element={<Crew />} />
       </Route>
     )
   );
 
   return (
     <>
-    <div className="destination">
+    <div className="crew">
       <RouterProvider router={router} />
     </div>
     </>
