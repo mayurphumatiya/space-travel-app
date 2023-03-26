@@ -7,13 +7,15 @@ import "../styles/Navbar.css"
 
 const Navbar = () => {
   const [openNav, setOpenNav] = useState<boolean>(false);
+  const [toggleTab, setToggleTab] = useState<Number>(1);
+
+  const handleTabs = (index: Number) => {
+    setToggleTab(index);
+    setOpenNav(false)
+  };
 
   const hamburgerClick = () =>{
     setOpenNav(!openNav);
-  }
-
-  const closeNav=()=>{
-    setOpenNav(false)
   }
 
 
@@ -26,42 +28,42 @@ const Navbar = () => {
       <nav>
          {/* @ts-ignore */}
         <ul id="primary-navigation" style={{transform: openNav && "translateX(0)"}} className="primary-navigation underline-indicators flex">
-          <li className="active">
+          
             <Link
               to="/"
-              className="ff-sans-cond uppercase text-white letter-spacing-2"
-              onClick={closeNav}
+              className={`${toggleTab === 0 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
+              onClick={() => handleTabs(0)}
             >
               <span>00</span>Home
             </Link>
-          </li>
-          <li>
+          
+          
             <Link
               to="/destination"
-              className="ff-sans-cond uppercase text-white letter-spacing-2"
-              onClick={closeNav}
+              className={`${toggleTab === 1 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
+              onClick={() => handleTabs(1)}
             >
               <span>01</span>Destination
             </Link>
-          </li>
-          <li>
+          
+          
             <Link
               to="/crew"
-              className="ff-sans-cond uppercase text-white letter-spacing-2"
-              onClick={closeNav}
+              className={`${toggleTab === 2 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
+              onClick={() => handleTabs(2)}
             >
               <span>02</span>Crew
             </Link>
-          </li>
-          <li>
+          
+          
             <Link
               to="/technology"
-              className="ff-sans-cond uppercase text-white letter-spacing-2"
-              onClick={closeNav}
+              className={`${toggleTab === 3 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
+              onClick={() => handleTabs(3)}
             >
               <span>03</span>Technology
             </Link>
-          </li>
+          
         </ul>
       </nav>
     </header>

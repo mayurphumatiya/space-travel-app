@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Destination from "./pages/Destination";
 import Crew from "./pages/Crew";
+import Technology from "./pages/Technology";
 
 function App() {
   const router = createBrowserRouter(
@@ -18,6 +19,7 @@ function App() {
         <Route index element={<Homepage />} />
         <Route path="/destination" element={<Destination />} />
         <Route path="/crew" element={<Crew />} />
+        <Route path="/technology" element={<Technology />} />
       </Route>
     )
   );
