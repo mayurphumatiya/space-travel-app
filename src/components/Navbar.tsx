@@ -5,12 +5,16 @@ import close from "../assets/shared/icon-close.svg";
 import ham from "../assets/shared/icon-hamburger.svg"
 import "../styles/Navbar.css"
 
-const Navbar = () => {
+interface NavbarProps {
+  toggleTab: Number,
+  setToggleTab: React.Dispatch<React.SetStateAction<Number>>,
+}
+
+const Navbar = (props:NavbarProps) => {
   const [openNav, setOpenNav] = useState<boolean>(false);
-  const [toggleTab, setToggleTab] = useState<Number>(1);
 
   const handleTabs = (index: Number) => {
-    setToggleTab(index);
+   props.setToggleTab(index);
     setOpenNav(false)
   };
 
@@ -31,7 +35,7 @@ const Navbar = () => {
           
             <Link
               to="/"
-              className={`${toggleTab === 0 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
+              className={`${props.toggleTab === 0 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
               onClick={() => handleTabs(0)}
             >
               <span>00</span>Home
@@ -40,7 +44,7 @@ const Navbar = () => {
           
             <Link
               to="/destination"
-              className={`${toggleTab === 1 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
+              className={`${props.toggleTab === 1 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
               onClick={() => handleTabs(1)}
             >
               <span>01</span>Destination
@@ -49,7 +53,7 @@ const Navbar = () => {
           
             <Link
               to="/crew"
-              className={`${toggleTab === 2 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
+              className={`${props.toggleTab === 2 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
               onClick={() => handleTabs(2)}
             >
               <span>02</span>Crew
@@ -58,7 +62,7 @@ const Navbar = () => {
           
             <Link
               to="/technology"
-              className={`${toggleTab === 3 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
+              className={`${props.toggleTab === 3 && "active"} ff-sans-cond uppercase text-white letter-spacing-2`}
               onClick={() => handleTabs(3)}
             >
               <span>03</span>Technology

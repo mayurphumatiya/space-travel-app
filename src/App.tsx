@@ -11,11 +11,14 @@ import {
 import Destination from "./pages/Destination";
 import Crew from "./pages/Crew";
 import Technology from "./pages/Technology";
+import { useState, useEffect } from "react";
 
 function App() {
+const [toggleTab, setToggleTab] = useState<Number>(0);
+const [img, setImg] = useState<string>("");
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Root />}>
+      <Route path="/" element={<Root toggleTab={toggleTab} setToggleTab={setToggleTab}/>}>
         <Route index element={<Homepage />} />
         <Route path="/destination" element={<Destination />} />
         <Route path="/crew" element={<Crew />} />
@@ -24,19 +27,45 @@ function App() {
     )
   );
 
+  const changeBgImage =()=>{
+    switch (toggleTab) {
+      case 0:
+        setImg("home");
+        break;
+      case 1:
+        setImg("destination");
+        break;
+      case 2:
+         setImg("crew");
+        break;
+      case 3:
+        setImg("technology");
+  }
+}
+
+  useEffect(()=>{
+    changeBgImage();
+  },[toggleTab])  //eslint-disable-line
+
   return (
     <>
-    <div className="destination">
+    <div className={img}>
       <RouterProvider router={router} />
     </div>
     </>
   );
 }
 
-const Root = () => {
+interface RootProps {
+  toggleTab: Number,
+  setToggleTab: React.Dispatch<React.SetStateAction<Number>>,
+}
+
+const Root = (props: RootProps) => {
+  
   return (
     <>
-      <Navbar />
+      <Navbar toggleTab={props.toggleTab} setToggleTab={props.setToggleTab} />
       <Outlet />
     </>
   );
