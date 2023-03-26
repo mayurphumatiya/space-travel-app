@@ -1,4 +1,4 @@
-.grid-container--destination > picture {
+.grid-container--destination > img {
     grid-area: image;
     max-width: 60%;
   }
@@ -49,14 +49,14 @@
   @media (min-width: 45em){
     .grid-container--destination {
         justify-items: start;
-        align-content:start;
+        align-content:center;
         grid-template-areas:
           ". title title ."
           ". image tabs ."
           ". image content .";
       }
     
-      .grid-container--destination > picture {
+      .grid-container--destination > img {
         max-width: 90%;
       }
       .destination-meta {

@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-    <div className="crew">
+    <div className="destination">
       <RouterProvider router={router} />
     </div>
     </>

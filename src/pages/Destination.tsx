@@ -1,7 +1,6 @@
 import React from "react";
-import moon from "../assets/destination/image-moon.png";
 import moon1 from "../assets/destination/image-moon.webp";
-import "../styles/Destination.css"
+import "../styles/Destination.css";
 
 const Destination = () => {
   return (
@@ -9,10 +8,8 @@ const Destination = () => {
       <h1 className="numbered-title">
         <span>01</span> Pick your destination
       </h1>
-      <picture>
-        <source srcSet={moon1} type="image/webp" />
-      <img src={moon} alt="moon" />
-      </picture>
+
+      <img src={moon1} alt="moon" />
 
       <div className="tab-list underline-indicators flex">
         <button className="uppercase ff-sans-cond text-accent letter-spacing-2">

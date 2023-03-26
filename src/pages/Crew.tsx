@@ -1,5 +1,4 @@
 import React from "react";
-import crew from "../assets/crew/image-douglas-hurley.png";
 import crew1 from "../assets/crew/image-douglas-hurley.webp";
 import "../styles/Crew.css";
 
@@ -34,11 +33,9 @@ const Crew = () => {
           time as commander of Crew Dragon Demo-2.
         </p>
       </article>
-      <picture>
-        <source srcSet={crew1} type="image/webp" />
-        <img src={crew} alt="Douglas Hurley" />
-      </picture>
-      
+
+        <img src={crew1} alt="Douglas Hurley" />
+ 
     </div>
   );
 };

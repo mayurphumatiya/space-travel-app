@@ -12,6 +12,10 @@ const Navbar = () => {
     setOpenNav(!openNav);
   }
 
+  const closeNav=()=>{
+    setOpenNav(false)
+  }
+
 
   return (
     <header className="primary-header flex">
@@ -26,6 +30,7 @@ const Navbar = () => {
             <Link
               to="/"
               className="ff-sans-cond uppercase text-white letter-spacing-2"
+              onClick={closeNav}
             >
               <span>00</span>Home
             </Link>
@@ -34,6 +39,7 @@ const Navbar = () => {
             <Link
               to="/destination"
               className="ff-sans-cond uppercase text-white letter-spacing-2"
+              onClick={closeNav}
             >
               <span>01</span>Destination
             </Link>
@@ -42,6 +48,7 @@ const Navbar = () => {
             <Link
               to="/crew"
               className="ff-sans-cond uppercase text-white letter-spacing-2"
+              onClick={closeNav}
             >
               <span>02</span>Crew
             </Link>
@@ -50,6 +57,7 @@ const Navbar = () => {
             <Link
               to="/technology"
               className="ff-sans-cond uppercase text-white letter-spacing-2"
+              onClick={closeNav}
             >
               <span>03</span>Technology
             </Link>
