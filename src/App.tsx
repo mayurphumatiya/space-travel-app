@@ -16,10 +16,11 @@ import { useState, useEffect } from "react";
 function App() {
 const [toggleTab, setToggleTab] = useState<Number>(0);
 const [img, setImg] = useState<string>("");
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root toggleTab={toggleTab} setToggleTab={setToggleTab}/>}>
-        <Route index element={<Homepage />} />
+        <Route index element={<Homepage setToggleTab={setToggleTab} />} />
         <Route path="/destination" element={<Destination />} />
         <Route path="/crew" element={<Crew />} />
         <Route path="/technology" element={<Technology />} />

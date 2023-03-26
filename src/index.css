@@ -156,6 +156,9 @@ select {
   padding: 2rem;
   border-radius: 1rem;
 }
+.hide {
+  display:none;
+}
 
 /* colors */
 
@@ -296,7 +299,7 @@ select {
 .dot-indicators > *:focus {
   background-color: hsl(var(--clr-white) / 0.5);
 }
-.dot-indicators > [aria-selected="true"] {
+.dot-indicators > .active {
   background-color: hsl(var(--clr-white) / 1);
 }
 
@@ -359,6 +362,7 @@ select {
       );
   }
 }
+
 
 
 

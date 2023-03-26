@@ -20,7 +20,7 @@ const Destination = (props : DestinationProps) => {
       </h1>
 
      { data && data.destinations.map((dest, index)=>(
-       <img key={index} className={`${index !== toggleTab && "hide"}`} src={dest.images.webp} alt="destination" />
+       <img key={index} className={`${index !== toggleTab && "hide"}`} src={dest.images.webp} alt={dest.name} />
      ))}
 
       <div className="tab-list underline-indicators flex">
