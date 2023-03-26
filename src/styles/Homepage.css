@@ -1,0 +1,15 @@
+@media (min-width: 45em){
+    .grid-container--home {
+        padding-bottom: max(6rem, 20vh);
+        align-items: end;
+      }
+    
+      .grid-container--home > *:first-child {
+        grid-column: 2;
+        /* outline: 1px solid red; */
+      }
+      .grid-container--home > *:last-child {
+        grid-column: 3;
+        /* outline: 1px solid yellow; */
+      }
+}

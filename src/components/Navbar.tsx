@@ -3,6 +3,7 @@ import logo from "../assets/shared/logo.svg";
 import { Link } from "react-router-dom";
 import close from "../assets/shared/icon-close.svg";
 import ham from "../assets/shared/icon-hamburger.svg"
+import "../styles/Navbar.css"
 
 const Navbar = () => {
   const [openNav, setOpenNav] = useState<boolean>(false);

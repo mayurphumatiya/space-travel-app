@@ -9,6 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Destination from "./pages/Destination";
+import Crew from "./pages/Crew";
 
 function App() {
   const router = createBrowserRouter(
@@ -16,13 +17,14 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route index element={<Homepage />} />
         <Route path="/destination" element={<Destination />} />
+        <Route path="/crew" element={<Crew />} />
       </Route>
     )
   );
 
   return (
     <>
-    <div className="home">
+    <div className="crew">
       <RouterProvider router={router} />
     </div>
     </>
