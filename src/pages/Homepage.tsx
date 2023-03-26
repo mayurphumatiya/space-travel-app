@@ -22,7 +22,7 @@ const Homepage = (props: HomepageProps) => {
         </p>
       </div>
       <div>
-        <div>
+        {/* <div> */}
           <Link
             to="/destination"
             onClick={() => props.setToggleTab(1)}
@@ -30,7 +30,7 @@ const Homepage = (props: HomepageProps) => {
           >
             Explore
           </Link>
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );

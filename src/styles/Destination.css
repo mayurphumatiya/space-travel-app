@@ -1,7 +1,9 @@
 .grid-container--destination > img {
     grid-area: image;
     max-width: 60%;
+    align-self:start;
   }
+  
   
   .grid-container--destination > .tab-list {
     grid-area: tabs;
