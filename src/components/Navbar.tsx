@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/shared/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import close from "../assets/shared/icon-close.svg";
 import ham from "../assets/shared/icon-hamburger.svg"
 import "../styles/Navbar.css"
@@ -12,6 +12,7 @@ interface NavbarProps {
 
 const Navbar = (props:NavbarProps) => {
   const [openNav, setOpenNav] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const handleTabs = (index: Number) => {
    props.setToggleTab(index);
@@ -22,6 +23,21 @@ const Navbar = (props:NavbarProps) => {
     setOpenNav(!openNav);
   }
 
+  useEffect(()=>{
+switch(props.toggleTab){
+  case 0:
+    navigate("/");
+    break;
+  case 1:
+    navigate("/destination");
+    break;
+  case 2:
+    navigate("/crew");
+    break;
+  case 3:
+    navigate("/technology");
+}
+  },[props.toggleTab]) //eslint-disable-line
 
   return (
     <header className="primary-header flex">

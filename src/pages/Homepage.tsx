@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/Homepage.css";
 
 interface HomepageProps {
@@ -7,12 +7,19 @@ interface HomepageProps {
 }
 
 const Homepage = (props: HomepageProps) => {
+  const navigate = useNavigate();
+
+  const exploreClick = () =>{
+    props.setToggleTab(1);
+    navigate("/destination")
+  }
+
   return (
     <div className="grid-container grid-container--home">
       <div>
         <h1 className="text-accent fs-500 ff-sans-cond uppercase ">
           So, you want to travel to
-          <span className="d-block fs-900 ff-serif text-white"> Space</span>
+          <span className="d-block fs-900 ff-serif text-white">Space</span>
         </h1>
         <p>
           Let’s face it; if you want to go to space, you might as well genuinely
@@ -22,15 +29,12 @@ const Homepage = (props: HomepageProps) => {
         </p>
       </div>
       <div>
-        {/* <div> */}
-          <Link
-            to="/destination"
-            onClick={() => props.setToggleTab(1)}
+          <button
+            onClick={exploreClick}
             className="large-button uppercase ff-serif fs-600 text-dark bg-white"
           >
             Explore
-          </Link>
-        {/* </div> */}
+          </button>
       </div>
     </div>
   );
