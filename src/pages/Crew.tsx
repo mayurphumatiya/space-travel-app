@@ -1,5 +1,7 @@
 import React from "react";
 import crew from "../assets/crew/image-douglas-hurley.png";
+import crew1 from "../assets/crew/image-douglas-hurley.webp";
+import "../styles/Crew.css";
 
 const Crew = () => {
   return (
@@ -21,17 +23,22 @@ const Crew = () => {
           <span className="sr-only">The crew engineer</span>
         </button>
       </div>
-      <article className="crew-details">
+      <article className="crew-details flow">
+        <header className="flow flow--space-small">
         <h2 className="fs-600 ff-serif uppercase">Commander</h2>
         <p className="fs-700 uppercase ff-serif">Douglas Hurley</p>
-
+        </header>
         <p>
           Douglas Gerald Hurley is an American engineer, former Marine Corps
           pilot and former NASA astronaut. He launched into space for the third
           time as commander of Crew Dragon Demo-2.
         </p>
       </article>
-      <img src={crew} alt="Douglas Hurley" />
+      <picture>
+        <source srcSet={crew1} type="image/webp" />
+        <img src={crew} alt="Douglas Hurley" />
+      </picture>
+      
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import moon from "../assets/destination/image-moon.png";
+import moon1 from "../assets/destination/image-moon.webp";
 import "../styles/Destination.css"
 
 const Destination = () => {
@@ -8,22 +9,26 @@ const Destination = () => {
       <h1 className="numbered-title">
         <span>01</span> Pick your destination
       </h1>
+      <picture>
+        <source srcSet={moon1} type="image/webp" />
       <img src={moon} alt="moon" />
+      </picture>
+
       <div className="tab-list underline-indicators flex">
-        <button className="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2">
+        <button className="uppercase ff-sans-cond text-accent letter-spacing-2">
           Moon
         </button>
-        <button className="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2">
+        <button className="uppercase ff-sans-cond text-accent letter-spacing-2">
           Mars
         </button>
-        <button className="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2">
+        <button className="uppercase ff-sans-cond text-accent letter-spacing-2">
           Europa
         </button>
-        <button className="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2">
+        <button className="uppercase ff-sans-cond text-accent letter-spacing-2">
           Titan
         </button>
       </div>
-      <article className="destination-info">
+      <article className="destination-info flow">
         <h2 className="fs-800 uppercase ff-serif">Moon</h2>
 
         <p>
