@@ -1,34 +1,51 @@
-import React from 'react'
-import "../styles/Technology.css"
-import vehicle from "../assets/technology/image-launch-vehicle-portrait.jpg"
+import React, { useState } from "react";
+import "../styles/Technology.css";
+import vehicle from "../assets/technology/image-launch-vehicle-portrait.jpg";
+import { data } from "../utils/data";
 
 const Technology = () => {
+  const [tab, setTab] = useState<Number>(0);
+
+  const changeTab = (index: Number) => {
+    setTab(index);
+  };
+
   return (
-    <div className='grid-container grid-container--technology flow'>
-       <h1 className="numbered-title numbered-title-technology">
+    <div className="grid-container grid-container--technology flow">
+      <h1 className="numbered-title numbered-title-technology">
         <span>03</span> space launch 101
       </h1>
       <div className="number-indicators ff-serif">
-        <button className='active'>
+        <button className={`${tab === 0 && "active"}`} onClick={()=>changeTab(0)}>
           <span>1</span>
         </button>
-        <button>
+        <button className={`${tab === 1 && "active"}`} onClick={()=>changeTab(1)}>
           <span>2</span>
         </button>
-        <button>
+        <button className={`${tab === 2 && "active"}`} onClick={()=>changeTab(2)}>
           <span>3</span>
         </button>
       </div>
-      <article className="technology-details flow">
+      {data &&
+        data.technology.map((tech, index) => (
+          <>
+            <article key={index} className={`${index!== tab && "hide"} technology-details flow"`}>
               <header className="flow flow--space-small">
-                <h2 className="fs-500 text-accent ff-sans-cond uppercase letter-spacing-3">the terminology...</h2>
-                <p className="fs-700 uppercase ff-serif">Launch Vehicle</p>
+                <h2 className="fs-500 text-accent ff-sans-cond uppercase letter-spacing-3">
+                  the terminology...
+                </h2>
+                <p className="fs-700 uppercase ff-serif">{tech.name}</p>
               </header>
-              <p className='text-accent'>A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch</p>
+              <p className="text-accent">
+              {tech.description}
+              </p>
             </article>
-            <img src={vehicle} alt="launch vehicle" />
+            <img className={`${index!== tab && "hide"} hidePImg`} src={tech.images.landscape} alt={tech.name} />
+            <img className={`${index!== tab && "hide"} hideLImg`} src={tech.images.portrait} alt={tech.name} />
+          </>
+        ))}
     </div>
-  )
-}
+  );
+};
 
-export default Technology
+export default Technology;

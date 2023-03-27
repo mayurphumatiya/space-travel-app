@@ -105,3 +105,16 @@
         gap: var(--gap, 1rem);
     }
   }
+
+
+  @media (min-width:45em){
+    .hidePImg{
+        display:none;
+    }
+  }
+
+  @media (max-width:45em){
+    .hideLImg{
+        display:none;
+    }
+  }
