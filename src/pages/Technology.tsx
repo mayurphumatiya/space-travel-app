@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../styles/Technology.css";
-import vehicle from "../assets/technology/image-launch-vehicle-portrait.jpg";
 import { data } from "../utils/data";
 
 const Technology = () => {
