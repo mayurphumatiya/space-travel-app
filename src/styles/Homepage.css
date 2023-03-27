@@ -18,7 +18,7 @@
 
 .large-button {
   font-size: 2rem;
-  position: relative;
+  /* position: relative; */
   padding: 0 2em;
   display: inline-grid;
   z-index: 1;
@@ -27,6 +27,7 @@
   border-radius: 50%;
   text-decoration: none;
   border:none;
+  cursor:pointer;
 }
 .large-button::after {
   content: "";
@@ -45,8 +46,8 @@
   transform: scale(1.5);
 }
 
-/* @media (min-width: 35em){
+@media (min-width: 35em){
   .large-button{
     position:relative;
   }
-} */
+}
