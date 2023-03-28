@@ -62,3 +62,25 @@
       align-self:end;
     } */
   }
+
+  /* Dot Indicators */
+
+  .dot {
+    --flow-gap: 4rem;
+  }
+  
+  .dot-indicators > * {
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: 0.5em;
+    background-color: hsl(var(--clr-white) / 0.25);
+  }
+  .dot-indicators > *:hover,
+  .dot-indicators > *:focus {
+    background-color: hsl(var(--clr-white) / 0.5);
+  }
+  .dot-indicators > .active {
+    background-color: hsl(var(--clr-white) / 1);
+  }
