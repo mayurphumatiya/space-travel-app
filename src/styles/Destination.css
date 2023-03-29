@@ -66,4 +66,17 @@
         justify-content: start;
     }
   }
-   
+
+  .bookBtn{
+    background:transparent;
+    border: 2px solid hsl(var(--clr-light)/1);
+    color:hsl(var(--clr-light)/1);
+    width:60%;
+    cursor:pointer;
+  }
+  
+  @media(max-width:45em){
+    .bookBtn{
+      height:40px
+    }
+  }

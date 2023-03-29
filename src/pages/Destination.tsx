@@ -66,6 +66,7 @@ const Destination = (props : DestinationProps) => {
               <p className="ff-serif uppercase">{dest.travel}</p>
             </div>
           </div>
+          <button className="bookBtn fs-600 uppercase ff-sans-cond letter-spacing-2">book now</button>
         </article>
       ))}
     </div>
