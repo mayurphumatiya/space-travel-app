@@ -8,6 +8,7 @@ import "../styles/Navbar.css"
 interface NavbarProps {
   toggleTab: Number,
   setToggleTab: React.Dispatch<React.SetStateAction<Number>>,
+  setOverlap: React.Dispatch<React.SetStateAction<Boolean>>,
 }
 
 const Navbar = (props:NavbarProps) => {
@@ -38,6 +39,10 @@ switch(props.toggleTab){
     navigate("/technology");
 }
   },[props.toggleTab]) //eslint-disable-line
+
+  useEffect(()=>{
+    props.setOverlap(openNav)
+  },[openNav]) //eslint-disable-line
 
   return (
     <header className="primary-header flex">

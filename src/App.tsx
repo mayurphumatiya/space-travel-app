@@ -16,12 +16,13 @@ import { useState, useEffect } from "react";
 function App() {
 const [toggleTab, setToggleTab] = useState<Number>(0);
 const [img, setImg] = useState<string>("");
+const [overlap, setOverlap] = useState<Boolean>(false);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Root toggleTab={toggleTab} setToggleTab={setToggleTab}/>}>
+      <Route path="/" element={<Root setOverlap={setOverlap} toggleTab={toggleTab} setToggleTab={setToggleTab}/>}>
         <Route index element={<Homepage setToggleTab={setToggleTab} />} />
-        <Route path="/destination" element={<Destination />} />
+        <Route path="/destination" element={<Destination overlap={overlap} />} />
         <Route path="/crew" element={<Crew />} />
         <Route path="/technology" element={<Technology />} />
       </Route>
@@ -60,13 +61,14 @@ const [img, setImg] = useState<string>("");
 interface RootProps {
   toggleTab: Number,
   setToggleTab: React.Dispatch<React.SetStateAction<Number>>,
+  setOverlap: React.Dispatch<React.SetStateAction<Boolean>>,
 }
 
 const Root = (props: RootProps) => {
   
   return (
     <>
-      <Navbar toggleTab={props.toggleTab} setToggleTab={props.setToggleTab} />
+      <Navbar setOverlap={props.setOverlap} toggleTab={props.toggleTab} setToggleTab={props.setToggleTab} />
       <Outlet />
     </>
   );

@@ -3,7 +3,7 @@ import { data } from "../utils/data";
 import "../styles/Destination.css";
 
 interface DestinationProps {
-  
+  overlap:Boolean,
 }
 
 const Destination = (props : DestinationProps) => {
@@ -18,7 +18,7 @@ const Destination = (props : DestinationProps) => {
       <h1 className="numbered-title">
         <span>01</span> Pick your destination
       </h1>
-
+    
      { data && data.destinations.map((dest, index)=>(
        <img key={index} className={`${index !== toggleTab && "hide"}`} src={dest.images.webp} alt={dest.name} />
      ))}
