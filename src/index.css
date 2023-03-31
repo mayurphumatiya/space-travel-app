@@ -78,8 +78,16 @@ body {
   padding-top:1.25rem clamp(1.5rem, 5vw, 3.5rem);
   display: grid;
   /* grid-template-rows: min-content 1fr; */
-
+  animation: fade 1s;
   overflow-x: hidden;
+}
+@keyframes fade{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
 }
 /* Images  */
 img,
@@ -271,8 +279,7 @@ select {
   }
 }
 
-  .underline-indicators > .active,
-  .underline-indicators > [aria-selected="true"] {
+  .underline-indicators > .active {
     color: hsl(var(--clr-white) / 1);
     border-color: hsl(var(--clr-white) / 1);
   }

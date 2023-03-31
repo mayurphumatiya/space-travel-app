@@ -20,7 +20,7 @@ const Destination = (props : DestinationProps) => {
       </h1>
     
      { data && data.destinations.map((dest, index)=>(
-       <img key={index} className={`${index !== toggleTab && "hide"}`} src={dest.images.webp} alt={dest.name} />
+       <img key={index} className={`${index !== toggleTab && "hide"} ${!props.overlap && "animate"}`} src={dest.images.webp} alt={dest.name} />
      ))}
 
       <div className="tab-list underline-indicators flex">
@@ -50,7 +50,7 @@ const Destination = (props : DestinationProps) => {
         </button>
       </div>
       {data && data.destinations.map((dest, index) => (
-        <article key={index} className={`${index !== toggleTab && "hide"} destination-info flow`}>
+        <article key={index} className={`${index !== toggleTab && "hide"} ${!props.overlap && "anime"} destination-info flow`}>
           <h2 className="fs-800 uppercase ff-serif">{dest.name}</h2>
 
           <p>
