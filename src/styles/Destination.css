@@ -101,6 +101,20 @@
     100% { 
         /* -webkit-transform: rotate(360deg);  */
         transform:rotate(360deg); 
-        z-index:0;
-    } 
+    }
+}
+
+.anime{
+  animation: right-to-left 1s;
+}
+
+@keyframes right-to-left{
+  0%{
+    transform:translateX(100%);
+    opacity:0;
+  }
+  100%{
+    transform:translateX(0%);
+    opacity:1;
+  }
 }

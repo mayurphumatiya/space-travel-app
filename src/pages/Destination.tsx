@@ -50,7 +50,7 @@ const Destination = (props : DestinationProps) => {
         </button>
       </div>
       {data && data.destinations.map((dest, index) => (
-        <article key={index} className={`${index !== toggleTab && "hide"} ${!props.overlap && "animateContent"} destination-info flow`}>
+        <article key={index} className={`${index !== toggleTab && "hide"} ${!props.overlap && "anime"} destination-info flow`}>
           <h2 className="fs-800 uppercase ff-serif">{dest.name}</h2>
 
           <p>
