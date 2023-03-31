@@ -2,8 +2,6 @@
     grid-area: image;
     max-width: 60%;
     align-self:start;
-    animation:spin 20s linear infinite;
-    z-index:0;
   }
   
   
@@ -94,6 +92,11 @@
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
 } */
+
+.animate{
+  animation:spin 20s linear infinite;
+}
+
 @keyframes spin { 
     100% { 
         /* -webkit-transform: rotate(360deg);  */
