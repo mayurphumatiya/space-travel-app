@@ -20,7 +20,7 @@ const Dialog = (props: DialogProps) => {
         <label>Password:</label>
         <input type="password" />
       </form>
-        <button className="login-btn text-accent" type="submit" onClick={handleClose}>
+        <button className="login-btn uppercase text-accent letter-spacing-2" type="submit" onClick={handleClose}>
           Login
         </button>
     </div>
