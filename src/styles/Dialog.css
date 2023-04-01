@@ -13,6 +13,8 @@
 form{
     flex-direction:column;
     align-items:flex-start;
+    border-top: 2px dashed hsl(var(--clr-light) / 1);
+    padding-block:.5em;
 }
 
 input{
