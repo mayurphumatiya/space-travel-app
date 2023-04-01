@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { data } from "../utils/data";
 import "../styles/Destination.css";
+import Dialog from "../components/Dialog";
 
 interface DestinationProps {
   overlap:Boolean,
@@ -8,10 +9,15 @@ interface DestinationProps {
 
 const Destination = (props : DestinationProps) => {
   const [toggleTab, setToggleTab] = useState<Number>(0);
+  const [open, setOpen]  = useState<Boolean>(false);
 
   const handleTabs = (index: Number) => {
     setToggleTab(index);
   };
+
+  const bookNowClick = () =>{
+    setOpen(true);
+  }
 
   return (
     <div className="grid-container grid-container--destination flow">
@@ -66,9 +72,10 @@ const Destination = (props : DestinationProps) => {
               <p className="ff-serif uppercase">{dest.travel}</p>
             </div>
           </div>
-          <button className="bookBtn fs-600 uppercase ff-sans-cond letter-spacing-2">book now</button>
+          <button className="bookBtn fs-600 uppercase ff-sans-cond letter-spacing-2" onClick={bookNowClick}>book now</button>
         </article>
       ))}
+      {open && <Dialog setOpen={setOpen} />}
     </div>
   );
 };
