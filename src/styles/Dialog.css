@@ -1,14 +1,24 @@
+.dialog-ctn{
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-color:hsl(var(--clr-dark) / 0.5);
+}
 .dialog{
     position:fixed;
-    top:5em;
-    justify-self:center;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    /* justify-self:center; */
     text-align:center;
     background: hsl(var(--clr-dark) / 0.05);
     backdrop-filter: blur(1.5rem);
     border-radius:10px;
     padding-block:1em;
     border:5px solid hsl(var(--clr-light) / .05);
-}
+} 
 
 form{
     flex-direction:column;

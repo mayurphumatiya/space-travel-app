@@ -10,6 +10,7 @@ const Dialog = (props: DialogProps) => {
     props.setOpen(false);
   };
   return (
+    <div className="dialog-ctn">
     <div className="dialog container">
       <h1 className="uppercase fs-700 ff-serif letter-spacing-1 text-accent">
         Login
@@ -23,6 +24,7 @@ const Dialog = (props: DialogProps) => {
         <button className="login-btn uppercase text-accent letter-spacing-2" type="submit" onClick={handleClose}>
           Login
         </button>
+    </div>
     </div>
   );
 };
