@@ -103,6 +103,13 @@ select {
   font: inherit;
 }
 
+input{
+  background-color:hsl(var(--clr-light) / 0.075);
+  border:none;
+  color:hsl(var(--clr-light) / 1);
+  width:100%;
+}
+
 /* Remove animations */
 @media (prefers-reduced-motion: reduce) {
   *,

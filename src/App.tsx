@@ -12,24 +12,38 @@ import Destination from "./pages/Destination";
 import Crew from "./pages/Crew";
 import Technology from "./pages/Technology";
 import { useState, useEffect } from "react";
+import Login from "./pages/Login";
 
 function App() {
-const [toggleTab, setToggleTab] = useState<Number>(0);
-const [img, setImg] = useState<string>("");
-const [overlap, setOverlap] = useState<Boolean>(false);
+  const [toggleTab, setToggleTab] = useState<Number>(0);
+  const [img, setImg] = useState<string>("");
+  const [overlap, setOverlap] = useState<Boolean>(false);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Root setOverlap={setOverlap} toggleTab={toggleTab} setToggleTab={setToggleTab}/>}>
+      <Route
+        path="/"
+        element={
+          <Root
+            setOverlap={setOverlap}
+            toggleTab={toggleTab}
+            setToggleTab={setToggleTab}
+          />
+        }
+      >
         <Route index element={<Homepage setToggleTab={setToggleTab} />} />
-        <Route path="/destination" element={<Destination overlap={overlap} />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/destination"
+          element={<Destination overlap={overlap} />}
+        />
         <Route path="/crew" element={<Crew />} />
         <Route path="/technology" element={<Technology />} />
       </Route>
     )
   );
 
-  const changeBgImage =()=>{
+  const changeBgImage = () => {
     switch (toggleTab) {
       case 0:
         setImg("home");
@@ -38,37 +52,44 @@ const [overlap, setOverlap] = useState<Boolean>(false);
         setImg("destination");
         break;
       case 2:
-         setImg("crew");
+        setImg("crew");
         break;
       case 3:
         setImg("technology");
-  }
-}
+        break;
+      default:
+        setImg("app");
+        break;
+    }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     changeBgImage();
-  },[toggleTab])  //eslint-disable-line
+  }, [toggleTab]); //eslint-disable-line
 
   return (
     <>
-    <div className={img}>
-      <RouterProvider router={router} />
-    </div>
+      <div className={img}>
+        <RouterProvider router={router} />
+      </div>
     </>
   );
 }
 
 interface RootProps {
-  toggleTab: Number,
-  setToggleTab: React.Dispatch<React.SetStateAction<Number>>,
-  setOverlap: React.Dispatch<React.SetStateAction<Boolean>>,
+  toggleTab: Number;
+  setToggleTab: React.Dispatch<React.SetStateAction<Number>>;
+  setOverlap: React.Dispatch<React.SetStateAction<Boolean>>;
 }
 
 const Root = (props: RootProps) => {
-  
   return (
     <>
-      <Navbar setOverlap={props.setOverlap} toggleTab={props.toggleTab} setToggleTab={props.setToggleTab} />
+      <Navbar
+        setOverlap={props.setOverlap}
+        toggleTab={props.toggleTab}
+        setToggleTab={props.setToggleTab}
+      />
       <Outlet />
     </>
   );

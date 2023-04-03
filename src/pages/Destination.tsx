@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { data } from "../utils/data";
 import "../styles/Destination.css";
-import Dialog from "../components/Dialog";
+// import Dialog from "../components/Dialog";
+import { useNavigate } from "react-router-dom";
 
 interface DestinationProps {
   overlap:Boolean,
@@ -9,14 +10,17 @@ interface DestinationProps {
 
 const Destination = (props : DestinationProps) => {
   const [toggleTab, setToggleTab] = useState<Number>(0);
-  const [open, setOpen]  = useState<Boolean>(false);
+  // const [open, setOpen]  = useState<Boolean>(false);
+
+  const navigate = useNavigate()
 
   const handleTabs = (index: Number) => {
     setToggleTab(index);
   };
 
   const bookNowClick = () =>{
-    setOpen(true);
+    // setOpen(true);
+    navigate("/login")
   }
 
   return (
@@ -75,7 +79,7 @@ const Destination = (props : DestinationProps) => {
           <button className="bookBtn fs-600 uppercase ff-sans-cond letter-spacing-2" onClick={bookNowClick}>book now</button>
         </article>
       ))}
-      {open && <Dialog setOpen={setOpen} />}
+      {/* {open && <Dialog setOpen={setOpen} />} */}
     </div>
   );
 };
