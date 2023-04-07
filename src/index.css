@@ -110,6 +110,12 @@ input{
   width:100%;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* Remove animations */
 @media (prefers-reduced-motion: reduce) {
   *,
