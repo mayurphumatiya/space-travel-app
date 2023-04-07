@@ -26,13 +26,6 @@
   background-color: hsl(var(--clr-light) / 1);
   color: hsl(var(--clr-dark) / 1);
 }
-.signup {
-  cursor: pointer;
-}
-.signup:hover {
-  color: hsl(var(--clr-white) / 1);
-  text-decoration: underline;
-}
 
 @media (min-width: 55em) {
   .login--container {
