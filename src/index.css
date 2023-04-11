@@ -78,7 +78,6 @@ body {
   padding-top:1.25rem clamp(1.5rem, 5vw, 3.5rem);
   display: grid;
   /* grid-template-rows: min-content 1fr; */
-  animation: fade 1s;
   overflow-x: hidden;
 }
 @keyframes fade{
@@ -313,6 +312,7 @@ input::-webkit-inner-spin-button {
   height: 100%;
   padding-bottom: 4rem;
   padding-top: 100px;
+  animation:fade 1s;
 }
 
 .grid-container p:not([className]) {
@@ -342,6 +342,14 @@ input::-webkit-inner-spin-button {
   }
 }
 
+@keyframes fade{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+}
 
 
 
