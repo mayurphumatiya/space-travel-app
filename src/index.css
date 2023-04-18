@@ -75,18 +75,10 @@ body {
   background-color: hsl(var(--clr-dark));
   line-height: 1.5;
   min-height: 100vh;
-  padding-top:1.25rem clamp(1.5rem, 5vw, 3.5rem);
+  padding-top: 1.25rem clamp(1.5rem, 5vw, 3.5rem);
   display: grid;
   /* grid-template-rows: min-content 1fr; */
   overflow-x: hidden;
-}
-@keyframes fade{
-  0%{
-    opacity:0;
-  }
-  100%{
-    opacity:1;
-  }
 }
 /* Images  */
 img,
@@ -102,11 +94,11 @@ select {
   font: inherit;
 }
 
-input{
-  background-color:hsl(var(--clr-light) / 0.075);
-  border:none;
-  color:hsl(var(--clr-light) / 1);
-  width:100%;
+input {
+  background-color: hsl(var(--clr-light) / 0.075);
+  border: none;
+  color: hsl(var(--clr-light) / 1);
+  width: 100%;
 }
 
 input::-webkit-outer-spin-button,
@@ -146,7 +138,7 @@ input::-webkit-inner-spin-button {
 }
 
 .flow--space-small {
-  --flow-space: .75rem;
+  --flow-space: 0.75rem;
 }
 
 .container {
@@ -177,7 +169,7 @@ input::-webkit-inner-spin-button {
   border-radius: 1rem;
 }
 .hide {
-  display:none;
+  display: none;
 }
 
 /* colors */
@@ -274,10 +266,10 @@ input::-webkit-inner-spin-button {
 
 .underline-indicators > * {
   cursor: pointer;
-  padding: var(--underline-gap, .5rem) 0;
+  padding: var(--underline-gap, 0.5rem) 0;
   border: 0;
   border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
-  background-color:transparent;
+  background-color: transparent;
 }
 
 .underline-indicators > *:hover,
@@ -291,10 +283,10 @@ input::-webkit-inner-spin-button {
   }
 }
 
-  .underline-indicators > .active {
-    color: hsl(var(--clr-white) / 1);
-    border-color: hsl(var(--clr-white) / 1);
-  }
+.underline-indicators > .active {
+  color: hsl(var(--clr-white) / 1);
+  border-color: hsl(var(--clr-white) / 1);
+}
 
 .tab-list {
   --gap: 2rem;
@@ -312,7 +304,7 @@ input::-webkit-inner-spin-button {
   height: 100%;
   padding-bottom: 4rem;
   padding-top: 100px;
-  animation:fade 1s;
+  animation: fade 1s;
 }
 
 .grid-container p:not([className]) {
@@ -322,7 +314,6 @@ input::-webkit-inner-spin-button {
 .numbered-title {
   grid-area: title;
 }
-
 
 @media (min-width: 35em) {
   .numbered-title {
@@ -342,14 +333,11 @@ input::-webkit-inner-spin-button {
   }
 }
 
-@keyframes fade{
-  0%{
-    opacity:0;
+@keyframes fade {
+  0% {
+    opacity: 0;
   }
-  100%{
-    opacity:1;
+  100% {
+    opacity: 1;
   }
 }
-
-
-

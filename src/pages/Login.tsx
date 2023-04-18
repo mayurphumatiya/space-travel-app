@@ -1,34 +1,62 @@
-import React, { useState } from 'react'
-import "../styles/Login.css"
+import React, { useState } from "react";
+import "../styles/Login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-const [email, setEmail] = useState<string>("");
-const [otp, setOtp] = useState("");
-const [getOtp, setGetOtp] = useState<boolean>(false);
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+  });
 
+  const { email, password } = login;
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLogin({ ...login, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.SyntheticEvent<EventTarget>) => {
+    e.preventDefault();
+    console.log(login);
+  };
 
   return (
-    <div className='main-container'>
-    <div className="login--container container">
-      <h1 className="uppercase fs-700 ff-serif letter-spacing-1 text-accent">
-        Login / Register
-      </h1>
-      <form className="form flex fs-500 ff-sans-cond letter-spacing-2">
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
-       {!getOtp && <button className='login-btn uppercase text-accent letter-spacing-2' onClick={()=>setGetOtp(true)}>Get OTP</button>}
-       {getOtp &&
-       <>
-        <label>OTP:</label>
-       <input type="number" name="otp" value={otp} onChange={(e)=>setOtp(e.target.value)} />
-        <button className="login-btn uppercase text-accent letter-spacing-2" type="submit" onClick={()=>{console.log(email,otp)}}>
+    <div className="main-container">
+      <div className="login--container container">
+        <h1 className="uppercase fs-700 ff-serif letter-spacing-1 text-accent">
           Login
-        </button>
-        </>}
-      </form>
-    </div>
-    </div>
-  )
-}
+        </h1>
+        <form
+          onSubmit={handleSubmit}
+          className="form flex fs-500 ff-sans-cond letter-spacing-2"
+        >
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+          />
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
+          <button
+            className="login-btn uppercase text-accent letter-spacing-2"
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
 
-export default Login
+        <Link to="/register" className="sign-up-btn">
+          Don't have an account? Sign up
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
