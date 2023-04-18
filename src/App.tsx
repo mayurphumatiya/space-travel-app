@@ -13,6 +13,7 @@ import Crew from "./pages/Crew";
 import Technology from "./pages/Technology";
 import { useState, useEffect } from "react";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   const [toggleTab, setToggleTab] = useState<Number>(0);
@@ -33,6 +34,7 @@ function App() {
       >
         <Route index element={<Homepage setToggleTab={setToggleTab} />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route
           path="/destination"
           element={<Destination overlap={overlap} />}

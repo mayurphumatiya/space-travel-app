@@ -1,0 +1,44 @@
+.main-container {
+    width: 100%;
+    height: 100%;
+    animation: fade 1s;
+  }
+  .register--container {
+    margin-top: 150px;
+    text-align: center;
+    padding-block: 1em;
+  }
+
+  .form {
+    flex-direction: column;
+    align-items: flex-start;
+    border-top: 2px dashed hsl(var(--clr-light) / 1);
+    padding-block: 0.5em;
+  }
+  .form-align{
+    flex-direction:column;
+    align-items:flex-start;
+    width:100%;
+}
+.form-div{
+    flex-direction:column;
+}
+
+  @media (min-width: 55em) {
+    .register--container {
+      background: hsl(var(--clr-dark) / 0.05);
+      backdrop-filter: blur(0.5rem);
+      border-radius: 10px;
+      border: 5px solid hsl(var(--clr-light) / 0.05);
+      margin-inline: 25rem;
+      z-index:1;
+    }
+    .form-align{
+        flex-direction:column;
+        width:50%;
+        align-items:flex-start;
+    }
+    .form-div{
+        flex-direction:row;
+    }
+  }
