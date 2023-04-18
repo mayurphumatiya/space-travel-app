@@ -22,11 +22,21 @@
   border: 1.5px dashed hsl(var(--clr-light) / 1);
   background-color: hsl(var(--clr-dark) / 0.05);
   cursor: pointer;
-  transition: .5s ease-in;
+  transition: .5s;
 }
 .login-btn:hover {
   background-color: hsl(var(--clr-light) / 1);
   color: hsl(var(--clr-dark) / 1);
+}
+
+.sign-up-btn{
+  cursor:pointer;
+  color: hsl(var(--clr-light) / 1);
+}
+
+.sign-up-btn:hover{
+ text-decoration:underline;
+ color: hsl(var(--clr-white) / 1)
 }
 
 @media (min-width: 55em) {
