@@ -22,6 +22,7 @@
   border: 1.5px dashed hsl(var(--clr-light) / 1);
   background-color: hsl(var(--clr-dark) / 0.05);
   cursor: pointer;
+  transition: .5s ease-in;
 }
 .login-btn:hover {
   background-color: hsl(var(--clr-light) / 1);
