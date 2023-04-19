@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../styles/Register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import ApiRoutes from "../utils/ApiRoutes.json";
+
 const Register = () => {
   const [register, setRegister] = useState({
     first_name: "",
@@ -9,13 +12,25 @@ const Register = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRegister({ ...register, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.SyntheticEvent<EventTarget>) => {
-    e.preventDefault();
-    console.log(register);
+  const handleSubmit = async (e: React.SyntheticEvent<EventTarget>) => {
+    try {
+      e.preventDefault();
+
+      const response = await axios.post(
+        `${ApiRoutes.url.local}${ApiRoutes.api.REGISTER}`,
+        register
+      );
+      console.log(response.data);
+      navigate("/login");
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
