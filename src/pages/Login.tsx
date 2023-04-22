@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ApiRoutes from "../utils/ApiRoutes.json"
 
@@ -11,6 +11,8 @@ const Login = () => {
   });
 
   const { email, password } = login;
+
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
@@ -26,7 +28,8 @@ const Login = () => {
     try{
       const response = await axios.post(`${ApiRoutes.url.local}${ApiRoutes.api.LOGIN}`, login);
       if(response.status === 200){
-        persistLogin(response.data.token, JSON.stringify(response.data.user))
+        persistLogin(response.data.token, JSON.stringify(response.data.user));
+        navigate("/")
       }
     }catch(e){
       console.log(e)

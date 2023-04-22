@@ -51,16 +51,14 @@ function App() {
           <Route path="/" element={<Homepage setToggleTab={setToggleTab} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-
+          <Route
+            path="/destination"
+            element={<Destination overlap={overlap} />}
+          />
+          <Route path="/crew" element={<Crew />} />
+          <Route path="/technology" element={<Technology />} />
           {/* Protected Routes */}
-          <Route element={<PrivateRoutes />}>
-            <Route
-              path="/destination"
-              element={<Destination overlap={overlap} />}
-            />
-            <Route path="/crew" element={<Crew />} />
-            <Route path="/technology" element={<Technology />} />
-          </Route>
+          <Route element={<PrivateRoutes />}></Route>
         </Routes>
       </div>
     </>
