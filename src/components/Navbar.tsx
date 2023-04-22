@@ -5,6 +5,8 @@ import close from "../assets/shared/icon-close.svg";
 import ham from "../assets/shared/icon-hamburger.svg";
 import "../styles/Navbar.css";
 import { clearUserData } from "../utils/ClearUserData";
+import axios from "axios";
+import ApiRoutes from "../utils/ApiRoutes.json";
 
 interface NavbarProps {
   toggleTab: Number;
@@ -19,10 +21,6 @@ const Navbar = (props: NavbarProps) => {
 
   const handleTabs = (index: Number) => {
     props.setToggleTab(index);
-    if (index === 4 && loggedUser) {
-      clearUserData();
-      navigate("/login");
-    }
     setOpenNav(false);
   };
 
@@ -46,6 +44,28 @@ const Navbar = (props: NavbarProps) => {
     }
   }, [props.toggleTab]); //eslint-disable-line
 
+  const logoutHandler = async (index: Number) => {
+    try {
+      props.setToggleTab(index);
+
+      const user = localStorage.getItem("user");
+      const headers = {
+        token: localStorage.getItem("token"),
+      };
+      const response = await axios.post(
+        `${ApiRoutes.url.local}${ApiRoutes.api.LOGOUT}`,
+        user,
+        { headers: headers }
+      );
+      if (response.status === 201) {
+        clearUserData();
+        navigate("/login");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     props.setOverlap(openNav);
   }, [openNav]); //eslint-disable-line
@@ -64,7 +84,8 @@ const Navbar = (props: NavbarProps) => {
       />
       <nav>
         {/* @ts-ignore */}
-        <ul id="primary-navigation" style={{ transform: openNav && "translateX(0)" }}
+        <ul style={{ transform: openNav && "translateX(0)" }}
+          id="primary-navigation"
           className="primary-navigation underline-indicators flex"
         >
           <Link
@@ -121,7 +142,7 @@ const Navbar = (props: NavbarProps) => {
               className={`${
                 props.toggleTab === 4 && "active"
               } ff-sans-cond uppercase text-white letter-spacing-2`}
-              onClick={() => handleTabs(4)}
+              onClick={() => logoutHandler(4)}
             >
               <span>04</span>logout
             </li>
