@@ -1,49 +1,19 @@
 import Navbar from "./components/Navbar";
 import Homepage from "./pages/Homepage";
 import "./styles/App.css";
-import { createRoutesFromElements } from "react-router";
-import {
-  createBrowserRouter,
-  Route,
-  Outlet,
-  RouterProvider,
-} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Destination from "./pages/Destination";
 import Crew from "./pages/Crew";
 import Technology from "./pages/Technology";
 import { useState, useEffect } from "react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import PrivateRoutes from "./components/PrivateRoutes";
 
 function App() {
   const [toggleTab, setToggleTab] = useState<Number>(0);
   const [img, setImg] = useState<string>("");
   const [overlap, setOverlap] = useState<Boolean>(false);
-
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route
-        path="/"
-        element={
-          <Root
-            setOverlap={setOverlap}
-            toggleTab={toggleTab}
-            setToggleTab={setToggleTab}
-          />
-        }
-      >
-        <Route index element={<Homepage setToggleTab={setToggleTab} />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route
-          path="/destination"
-          element={<Destination overlap={overlap} />}
-        />
-        <Route path="/crew" element={<Crew />} />
-        <Route path="/technology" element={<Technology />} />
-      </Route>
-    )
-  );
 
   const changeBgImage = () => {
     switch (toggleTab) {
@@ -72,29 +42,29 @@ function App() {
   return (
     <>
       <div className={img}>
-        <RouterProvider router={router} />
+        <Navbar
+          setOverlap={setOverlap}
+          toggleTab={toggleTab}
+          setToggleTab={setToggleTab}
+        />
+        <Routes>
+          <Route path="/" element={<Homepage setToggleTab={setToggleTab} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          {/* Protected Routes */}
+          <Route element={<PrivateRoutes />}>
+            <Route
+              path="/destination"
+              element={<Destination overlap={overlap} />}
+            />
+            <Route path="/crew" element={<Crew />} />
+            <Route path="/technology" element={<Technology />} />
+          </Route>
+        </Routes>
       </div>
     </>
   );
 }
-
-interface RootProps {
-  toggleTab: Number;
-  setToggleTab: React.Dispatch<React.SetStateAction<Number>>;
-  setOverlap: React.Dispatch<React.SetStateAction<Boolean>>;
-}
-
-const Root = (props: RootProps) => {
-  return (
-    <>
-      <Navbar
-        setOverlap={props.setOverlap}
-        toggleTab={props.toggleTab}
-        setToggleTab={props.setToggleTab}
-      />
-      <Outlet />
-    </>
-  );
-};
 
 export default App;
