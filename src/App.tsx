@@ -12,7 +12,6 @@ import PrivateRoutes from "./components/PrivateRoutes";
 
 function App() {
   const [img, setImg] = useState<string>("");
-  const [overlap, setOverlap] = useState<Boolean>(false);
 
   const location = useLocation();
 
@@ -43,17 +42,12 @@ function App() {
   return (
     <>
       <div className={img}>
-        <Navbar
-          setOverlap={setOverlap}
-        />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route
-            path="/destination"
-            element={<Destination overlap={overlap} />}
-          />
+          <Route path="/destination" element={<Destination />} />
           <Route path="/crew" element={<Crew />} />
           <Route path="/technology" element={<Technology />} />
           {/* Protected Routes */}

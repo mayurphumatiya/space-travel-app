@@ -7,14 +7,14 @@ import "../styles/Navbar.css";
 import { clearUserData } from "../utils/ClearUserData";
 import axios from "axios";
 import ApiRoutes from "../utils/ApiRoutes.json";
+import { useDispatch } from "react-redux";
+import { overlappin } from "../Store/Slices/OverlapSlice";
 
-interface NavbarProps {
-  setOverlap: React.Dispatch<React.SetStateAction<Boolean>>;
-}
-
-const Navbar = (props: NavbarProps) => {
+const Navbar = () => {
   const [openNav, setOpenNav] = useState<boolean>(false);
   const loggedUser = localStorage.getItem("token");
+
+  const dispatch  = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const loct = location.pathname;
@@ -49,7 +49,7 @@ const Navbar = (props: NavbarProps) => {
   };
 
   useEffect(() => {
-    props.setOverlap(openNav);
+    dispatch(overlappin(openNav))
   }, [openNav]); //eslint-disable-line
 
 

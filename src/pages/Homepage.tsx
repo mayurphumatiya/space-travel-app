@@ -2,10 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Homepage.css";
 
-interface HomepageProps {
-}
-
-const Homepage = (props: HomepageProps) => {
+const Homepage = () => {
   const navigate = useNavigate();
 
   const exploreClick = () =>{
