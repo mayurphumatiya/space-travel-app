@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Homepage from "./pages/Homepage";
 import "./styles/App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Destination from "./pages/Destination";
 import Crew from "./pages/Crew";
 import Technology from "./pages/Technology";
@@ -15,18 +15,20 @@ function App() {
   const [img, setImg] = useState<string>("");
   const [overlap, setOverlap] = useState<Boolean>(false);
 
+  const location = useLocation();
+
   const changeBgImage = () => {
-    switch (toggleTab) {
-      case 0:
+    switch (location.pathname) {
+      case "/":
         setImg("home");
         break;
-      case 1:
+      case "/destination":
         setImg("destination");
         break;
-      case 2:
+      case "/crew":
         setImg("crew");
         break;
-      case 3:
+      case "/technology":
         setImg("technology");
         break;
       default:
@@ -37,7 +39,7 @@ function App() {
 
   useEffect(() => {
     changeBgImage();
-  }, [toggleTab]); //eslint-disable-line
+  }, [location.pathname]); //eslint-disable-line
 
   return (
     <>
@@ -48,7 +50,7 @@ function App() {
           setToggleTab={setToggleTab}
         />
         <Routes>
-          <Route path="/" element={<Homepage setToggleTab={setToggleTab} />} />
+          <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route

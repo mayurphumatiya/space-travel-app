@@ -3,14 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Homepage.css";
 
 interface HomepageProps {
-  setToggleTab: React.Dispatch<React.SetStateAction<Number>>;
 }
 
 const Homepage = (props: HomepageProps) => {
   const navigate = useNavigate();
 
   const exploreClick = () =>{
-    props.setToggleTab(1);
     navigate("/destination")
   }
 

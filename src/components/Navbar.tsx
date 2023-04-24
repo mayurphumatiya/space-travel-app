@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assets/shared/logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import close from "../assets/shared/icon-close.svg";
 import ham from "../assets/shared/icon-hamburger.svg";
 import "../styles/Navbar.css";
@@ -18,36 +18,15 @@ const Navbar = (props: NavbarProps) => {
   const [openNav, setOpenNav] = useState<boolean>(false);
   const loggedUser = localStorage.getItem("token");
   const navigate = useNavigate();
-
-  const handleTabs = (index: Number) => {
-    props.setToggleTab(index);
-    setOpenNav(false);
-  };
+  const location = useLocation();
+  const loct = location.pathname;
 
   const hamburgerClick = () => {
     setOpenNav(!openNav);
   };
 
-  useEffect(() => {
-    switch (props.toggleTab) {
-      case 0:
-        navigate("/");
-        break;
-      case 1:
-        navigate("/destination");
-        break;
-      case 2:
-        navigate("/crew");
-        break;
-      case 3:
-        navigate("/technology");
-    }
-  }, [props.toggleTab]); //eslint-disable-line
-
-  const logoutHandler = async (index: Number) => {
+  const logoutHandler = async () => {
     try {
-      props.setToggleTab(index);
-
       const user = localStorage.getItem("user");
       const headers = {
         token: localStorage.getItem("token"),
@@ -91,9 +70,8 @@ const Navbar = (props: NavbarProps) => {
           <Link
             to="/"
             className={`${
-              props.toggleTab === 0 && "active"
+              loct === "/" && "active"
             } ff-sans-cond uppercase text-white letter-spacing-2`}
-            onClick={() => handleTabs(0)}
           >
             <span>00</span>Home
           </Link>
@@ -101,9 +79,8 @@ const Navbar = (props: NavbarProps) => {
           <Link
             to="/destination"
             className={`${
-              props.toggleTab === 1 && "active"
+              loct === "/destination" && "active"
             } ff-sans-cond uppercase text-white letter-spacing-2`}
-            onClick={() => handleTabs(1)}
           >
             <span>01</span>Destination
           </Link>
@@ -111,9 +88,8 @@ const Navbar = (props: NavbarProps) => {
           <Link
             to="/crew"
             className={`${
-              props.toggleTab === 2 && "active"
+              loct === "/crew" && "active"
             } ff-sans-cond uppercase text-white letter-spacing-2`}
-            onClick={() => handleTabs(2)}
           >
             <span>02</span>Crew
           </Link>
@@ -121,9 +97,8 @@ const Navbar = (props: NavbarProps) => {
           <Link
             to="/technology"
             className={`${
-              props.toggleTab === 3 && "active"
+              loct === "/technology" && "active"
             } ff-sans-cond uppercase text-white letter-spacing-2`}
-            onClick={() => handleTabs(3)}
           >
             <span>03</span>Technology
           </Link>
@@ -131,18 +106,15 @@ const Navbar = (props: NavbarProps) => {
             <Link
               to="/login"
               className={`${
-                props.toggleTab === 4 && "active"
+                loct === "/login" && "active"
               } ff-sans-cond uppercase text-white letter-spacing-2`}
-              onClick={() => handleTabs(4)}
             >
               <span>04</span>login
             </Link>
           ) : (
             <li
-              className={`${
-                props.toggleTab === 4 && "active"
-              } ff-sans-cond uppercase text-white letter-spacing-2`}
-              onClick={() => logoutHandler(4)}
+              className={`ff-sans-cond uppercase text-white letter-spacing-2`}
+              onClick={logoutHandler}
             >
               <span>04</span>logout
             </li>
