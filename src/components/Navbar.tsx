@@ -41,8 +41,8 @@ const Navbar = (props: NavbarProps) => {
       if (response.status === 201) {
         clearUserData();
         navigate("/login");
-        setOpenNav(false);
       }
+      setOpenNav(false);
     } catch (e) {
       console.log(e);
     }
@@ -50,7 +50,9 @@ const Navbar = (props: NavbarProps) => {
 
   useEffect(() => {
     props.setOverlap(openNav);
+    console.log(openNav)
   }, [openNav]); //eslint-disable-line
+
 
   return (
     <header className="primary-header flex">
