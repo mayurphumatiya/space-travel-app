@@ -50,7 +50,6 @@ const Navbar = (props: NavbarProps) => {
 
   useEffect(() => {
     props.setOverlap(openNav);
-    console.log(openNav)
   }, [openNav]); //eslint-disable-line
 
 
