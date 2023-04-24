@@ -23,6 +23,10 @@ const Navbar = (props: NavbarProps) => {
     setOpenNav(!openNav);
   };
 
+  const closeMobileNav = () => {
+    setOpenNav(false);
+  };
+
   const logoutHandler = async () => {
     try {
       const user = localStorage.getItem("user");
@@ -37,6 +41,7 @@ const Navbar = (props: NavbarProps) => {
       if (response.status === 201) {
         clearUserData();
         navigate("/login");
+        setOpenNav(false);
       }
     } catch (e) {
       console.log(e);
@@ -70,6 +75,7 @@ const Navbar = (props: NavbarProps) => {
             className={`${
               loct === "/" && "active"
             } ff-sans-cond uppercase text-white letter-spacing-2`}
+            onClick={closeMobileNav}
           >
             <span>00</span>Home
           </Link>
@@ -79,6 +85,7 @@ const Navbar = (props: NavbarProps) => {
             className={`${
               loct === "/destination" && "active"
             } ff-sans-cond uppercase text-white letter-spacing-2`}
+            onClick={closeMobileNav}
           >
             <span>01</span>Destination
           </Link>
@@ -88,6 +95,7 @@ const Navbar = (props: NavbarProps) => {
             className={`${
               loct === "/crew" && "active"
             } ff-sans-cond uppercase text-white letter-spacing-2`}
+            onClick={closeMobileNav}
           >
             <span>02</span>Crew
           </Link>
@@ -97,6 +105,7 @@ const Navbar = (props: NavbarProps) => {
             className={`${
               loct === "/technology" && "active"
             } ff-sans-cond uppercase text-white letter-spacing-2`}
+            onClick={closeMobileNav}
           >
             <span>03</span>Technology
           </Link>
@@ -106,6 +115,7 @@ const Navbar = (props: NavbarProps) => {
               className={`${
                 loct === "/login" && "active"
               } ff-sans-cond uppercase text-white letter-spacing-2`}
+              onClick={closeMobileNav}
             >
               <span>04</span>login
             </Link>
