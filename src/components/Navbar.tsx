@@ -9,8 +9,6 @@ import axios from "axios";
 import ApiRoutes from "../utils/ApiRoutes.json";
 
 interface NavbarProps {
-  toggleTab: Number;
-  setToggleTab: React.Dispatch<React.SetStateAction<Number>>;
   setOverlap: React.Dispatch<React.SetStateAction<Boolean>>;
 }
 

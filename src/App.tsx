@@ -11,7 +11,6 @@ import Register from "./pages/Register";
 import PrivateRoutes from "./components/PrivateRoutes";
 
 function App() {
-  const [toggleTab, setToggleTab] = useState<Number>(0);
   const [img, setImg] = useState<string>("");
   const [overlap, setOverlap] = useState<Boolean>(false);
 
@@ -46,8 +45,6 @@ function App() {
       <div className={img}>
         <Navbar
           setOverlap={setOverlap}
-          toggleTab={toggleTab}
-          setToggleTab={setToggleTab}
         />
         <Routes>
           <Route path="/" element={<Homepage />} />
