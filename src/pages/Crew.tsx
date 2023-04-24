@@ -1,9 +1,12 @@
 import React,{useState} from "react";
 import "../styles/Crew.css";
 import { data } from "../utils/data";
+import { useSelector } from "react-redux";
+import { getOverlapSelector } from "../Store/Slices/OverlapSlice";
 
 const Crew = () => {
   const [dot, setDot] = useState<Number>(0)
+  const stopAnimation = useSelector(getOverlapSelector)
   const crewMember = (index:Number) =>{
     setDot(index)
   }
@@ -29,7 +32,7 @@ const Crew = () => {
       {data &&
         data.crew.map((cr, index) => (
           <>
-            <article key={index} className={`${index!==dot && "hide"} crew-details flow`}>
+            <article key={index} className={`${index!==dot && "hide"} ${!stopAnimation.overlap && "animi"} crew-details flow`}>
               <header className="flow flow--space-small">
                 <h2 className="fs-600 ff-serif uppercase">{cr.role}</h2>
                 <p className="fs-700 uppercase ff-serif">{cr.name}</p>

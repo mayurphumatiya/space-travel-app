@@ -104,6 +104,8 @@
     }
 }
 
+/* ANIMATION */
+
 .anime{
   animation: right-to-left 1s;
 }

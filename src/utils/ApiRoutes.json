@@ -1,0 +1,12 @@
+{
+    "url": {
+        "production": "",
+        "development": "",
+        "local": "http://localhost:5000/"
+    },
+    "api": {
+        "REGISTER":"user/signup",
+        "LOGIN":"auth/login",
+        "LOGOUT":"auth/logout"
+    }
+}

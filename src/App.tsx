@@ -1,60 +1,32 @@
 import Navbar from "./components/Navbar";
 import Homepage from "./pages/Homepage";
 import "./styles/App.css";
-import { createRoutesFromElements } from "react-router";
-import {
-  createBrowserRouter,
-  Route,
-  Outlet,
-  RouterProvider,
-} from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Destination from "./pages/Destination";
 import Crew from "./pages/Crew";
 import Technology from "./pages/Technology";
 import { useState, useEffect } from "react";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
+import PrivateRoutes from "./components/PrivateRoutes";
 
 function App() {
-  const [toggleTab, setToggleTab] = useState<Number>(0);
   const [img, setImg] = useState<string>("");
-  const [overlap, setOverlap] = useState<Boolean>(false);
 
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route
-        path="/"
-        element={
-          <Root
-            setOverlap={setOverlap}
-            toggleTab={toggleTab}
-            setToggleTab={setToggleTab}
-          />
-        }
-      >
-        <Route index element={<Homepage setToggleTab={setToggleTab} />} />
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/destination"
-          element={<Destination overlap={overlap} />}
-        />
-        <Route path="/crew" element={<Crew />} />
-        <Route path="/technology" element={<Technology />} />
-      </Route>
-    )
-  );
+  const location = useLocation();
 
   const changeBgImage = () => {
-    switch (toggleTab) {
-      case 0:
+    switch (location.pathname) {
+      case "/":
         setImg("home");
         break;
-      case 1:
+      case "/destination":
         setImg("destination");
         break;
-      case 2:
+      case "/crew":
         setImg("crew");
         break;
-      case 3:
+      case "/technology":
         setImg("technology");
         break;
       default:
@@ -65,34 +37,25 @@ function App() {
 
   useEffect(() => {
     changeBgImage();
-  }, [toggleTab]); //eslint-disable-line
+  }, [location.pathname]); //eslint-disable-line
 
   return (
     <>
       <div className={img}>
-        <RouterProvider router={router} />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/destination" element={<Destination />} />
+          <Route path="/crew" element={<Crew />} />
+          <Route path="/technology" element={<Technology />} />
+          {/* Protected Routes */}
+          <Route element={<PrivateRoutes />}></Route>
+        </Routes>
       </div>
     </>
   );
 }
-
-interface RootProps {
-  toggleTab: Number;
-  setToggleTab: React.Dispatch<React.SetStateAction<Number>>;
-  setOverlap: React.Dispatch<React.SetStateAction<Boolean>>;
-}
-
-const Root = (props: RootProps) => {
-  return (
-    <>
-      <Navbar
-        setOverlap={props.setOverlap}
-        toggleTab={props.toggleTab}
-        setToggleTab={props.setToggleTab}
-      />
-      <Outlet />
-    </>
-  );
-};
 
 export default App;
