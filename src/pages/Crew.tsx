@@ -32,7 +32,7 @@ const Crew = () => {
       {data &&
         data.crew.map((cr, index) => (
           <>
-            <article key={index} className={`${index!==dot && "hide"} ${!stopAnimation.overlap && "anime"} crew-details flow`}>
+            <article key={index} className={`${index!==dot && "hide"} ${!stopAnimation.overlap && "animi"} crew-details flow`}>
               <header className="flow flow--space-small">
                 <h2 className="fs-600 ff-serif uppercase">{cr.role}</h2>
                 <p className="fs-700 uppercase ff-serif">{cr.name}</p>

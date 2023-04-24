@@ -87,7 +87,10 @@
 .dot-indicators > .active {
   background-color: hsl(var(--clr-white) / 1);
 }
-.anime {
+
+/* ANIMATION */
+
+.animi {
   animation: left-to-right 1s;
 }
 
@@ -103,17 +106,17 @@
 }
 
 @media (max-width: 35em) {
-  .anime {
-    animation: right-to-left 1s;
+  .animi {
+    animation: bottom-to-top 1s;
   }
-
-  @keyframes right-to-left {
+  
+  @keyframes bottom-to-top {
     0% {
-      transform: translateX(100%);
+      transform: translatey(100%);
       opacity: 0;
     }
     100% {
-      transform: translateX(0%);
+      transform: translatey(0%);
       opacity: 1;
     }
   }
