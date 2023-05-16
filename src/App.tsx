@@ -10,9 +10,12 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PrivateRoutes from "./components/PrivateRoutes";
 import Checkout from "./pages/Checkout";
+import { useSelector } from "react-redux";
+import { getNavbarSelector } from "./Store/Slices/NavbarSlice";
 
 function App() {
   const [img, setImg] = useState<string>("");
+  const nav = useSelector(getNavbarSelector)
 
   const location = useLocation();
 
@@ -38,12 +41,13 @@ function App() {
 
   useEffect(() => {
     changeBgImage();
+    console.log(nav)
   }, [location.pathname]); //eslint-disable-line
 
   return (
     <>
       <div className={img}>
-        <Navbar />
+       {nav.show && <Navbar />}
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />

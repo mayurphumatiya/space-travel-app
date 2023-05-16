@@ -7,15 +7,15 @@ const showNavSlice = createSlice({
   },
   reducers: {
     showNav: (state, { payload }) => {
-      state.showNav = payload;
+      state.show = payload;
     },
   },
 });
 
 export const { showNav } = showNavSlice.actions;
 
-export const getOverlapSelector = createSelector(
-  (state) => state.overlap,
+export const getNavbarSelector = createSelector(
+  (state) => state.showNav,
   (state) => state
 );
 
