@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PrivateRoutes from "./components/PrivateRoutes";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const [img, setImg] = useState<string>("");
@@ -50,8 +51,11 @@ function App() {
           <Route path="/destination" element={<Destination />} />
           <Route path="/crew" element={<Crew />} />
           <Route path="/technology" element={<Technology />} />
+          
           {/* Protected Routes */}
-          <Route element={<PrivateRoutes />}></Route>
+          <Route element={<PrivateRoutes />}>
+              <Route path="/checkout" element={<Checkout />} />
+          </Route>
         </Routes>
       </div>
     </>
