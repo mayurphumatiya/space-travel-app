@@ -1,19 +1,38 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getNavbarSelector, showNav } from "../Store/Slices/NavbarSlice";
+import { showNav } from "../Store/Slices/NavbarSlice";
 
 const Checkout = () => {
-  const nav = useSelector(getNavbarSelector)
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(showNav(false));
-    console.log(nav)
   }, []);
 
   return (
     <>
-      <div></div>
+      <div>
+        <h1 className="uppercase fs-700 ff-serif letter-spacing-1 text-accent">Checkout</h1>
+        <form>
+            <div>
+            <label>First Name:</label>
+            <input type="text" name="first_name" />
+            </div>
+            
+            <div>
+            <label>Last Name:</label>
+            <input type="text" name="first_name" />
+            </div>
+            
+            <div>
+            <label>Email Id:</label>
+            <input type="text" name="first_name" />
+            </div>
+
+            
+        </form>
+      </div>
     </>
   );
 };
