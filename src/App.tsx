@@ -12,10 +12,12 @@ import PrivateRoutes from "./components/PrivateRoutes";
 import Checkout from "./pages/Checkout";
 import { useSelector } from "react-redux";
 import { getNavbarSelector } from "./Store/Slices/NavbarSlice";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [img, setImg] = useState<string>("");
-  const nav = useSelector(getNavbarSelector)
+  const nav = useSelector(getNavbarSelector);
 
   const location = useLocation();
 
@@ -41,13 +43,13 @@ function App() {
 
   useEffect(() => {
     changeBgImage();
-    console.log(nav)
+    console.log(nav);
   }, [location.pathname]); //eslint-disable-line
 
   return (
     <>
       <div className={img}>
-       {nav.show && <Navbar />}
+        {nav.show && <Navbar />}
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
@@ -55,12 +57,25 @@ function App() {
           <Route path="/destination" element={<Destination />} />
           <Route path="/crew" element={<Crew />} />
           <Route path="/technology" element={<Technology />} />
-          
+
           {/* Protected Routes */}
           <Route element={<PrivateRoutes />}>
-              <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Route>
         </Routes>
+        <ToastContainer
+          position="bottom-left"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          limit={2}
+        />
       </div>
     </>
   );

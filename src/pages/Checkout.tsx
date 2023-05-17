@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { showNav } from "../Store/Slices/NavbarSlice";
 
 const Checkout = () => {
@@ -8,7 +8,7 @@ const Checkout = () => {
 
   useEffect(() => {
     dispatch(showNav(false));
-  }, []);
+  }, []); //eslint-disable-line
 
   return (
     <>
