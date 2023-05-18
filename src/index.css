@@ -33,7 +33,7 @@
 @media (min-width: 45em) {
   :root {
     /* font-sizes */
-    --fs-800: 6.25rem;
+    --fs-800: 5rem;
     --fs-700: 3.5rem;
     --fs-600: 2rem;
     --fs-500: 1.75rem;
@@ -99,6 +99,9 @@ input {
   border: none;
   color: hsl(var(--clr-light) / 1);
   width: 100%;
+  padding-block:5px;
+  padding-inline:10px;
+  border-radius:2px;
 }
 
 input::-webkit-outer-spin-button,
@@ -141,8 +144,13 @@ input::-webkit-inner-spin-button {
   --flow-space: 0.75rem;
 }
 
+.main-heading {
+  text-align:center;
+  padding:20px 10px
+}
+
 .container {
-  padding-inline: 2em;
+  padding-inline: 1rem;
   max-width: 80rem;
   margin-inline: auto;
 }
