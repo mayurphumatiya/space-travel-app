@@ -94,6 +94,10 @@ select {
   font: inherit;
 }
 
+label{
+  font-size:1.25rem;
+}
+
 input {
   background-color: hsl(var(--clr-light) / 0.075);
   border: none;
@@ -102,6 +106,12 @@ input {
   padding-block:5px;
   padding-inline:10px;
   border-radius:2px;
+}
+
+.input-div {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
 }
 
 input::-webkit-outer-spin-button,
