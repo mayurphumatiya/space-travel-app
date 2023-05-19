@@ -1,4 +1,17 @@
+.checkout-ctn{
+    display:flex;
+    padding: 1rem 3rem;
+}
 
+@media (min-width:45rem){
+    .middle-container {
+        backdrop-filter: blur(0.5rem);
+        border-radius: 10px;
+        border: 5px solid hsl(var(--clr-light) / 0.05);
+        width: 50vw;
+        padding: 10px;
+      }
+}
 
 
 

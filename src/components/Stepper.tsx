@@ -4,7 +4,7 @@ import { TiTick} from "react-icons/ti"
 
 const Stepper = () => {
   const steps = ["Customer Info", "Contact Info", "Payment"];
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(2);
   const [complete, setComplete] = useState(false);
   return (
     <>
@@ -21,16 +21,6 @@ const Stepper = () => {
           </div>
         ))}
       </div>
-      <button
-        className="login-btn"
-        onClick={() => {
-          currentStep === steps.length
-            ? setComplete(true)
-            : setCurrentStep((prev) => prev + 1);
-        }}
-      >
-        Next
-      </button>
     </>
   );
 };

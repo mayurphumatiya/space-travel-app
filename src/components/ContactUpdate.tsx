@@ -2,7 +2,7 @@ import "../styles/ContactUpdate.css";
 
 const ContactUpdate = () => {
   return (
-    <div className="middle-container">
+    <>
       <h1 className="main-heading fs-700 uppercase ff-sans-cond letter-spacing-2 text-white">
         Contact Details
       </h1>
@@ -18,7 +18,7 @@ const ContactUpdate = () => {
           Update details
         </button>
       </form>
-    </div>
+      </>
   );
 };
 
