@@ -43,6 +43,10 @@
     color:  hsl(var(--clr-light));
 }
 
+.active:not(:first-child):before {
+  background-color:hsl(var(--clr-light));
+}
+
 .complete .step{
     background-color:#B2A4FF;
 }

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { showNav } from "../Store/Slices/NavbarSlice";
 import "../styles/Checkout.css";
 import ContactUpdate from "../components/ContactUpdate";
+import Stepper from "../components/Stepper";
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Checkout = () => {
             Checkout
           </h1>
         </div>
+        <Stepper />
         <ContactUpdate />
       </div>
     </>
