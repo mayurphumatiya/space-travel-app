@@ -1,0 +1,51 @@
+.ticket-details {
+  text-align: center;
+}
+
+.tickets-container {
+  padding-inline: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.single-data {
+  display: flex;
+  align-items: center;
+}
+
+.single-data label {
+  width: 50%;
+}
+
+.single-data span {
+  font-size: 1.25rem;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 480px) {
+  .single-data label {
+    font-size: 1rem;
+  }
+  .single-data span {
+    font-size: 1rem;
+  }
+}
+
+
+/* UPI FORM */
+
+.upi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 45rem) {
+    .upi-form {
+      padding-inline: 3rem;
+    }
+  }

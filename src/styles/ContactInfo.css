@@ -1,0 +1,17 @@
+.contact-container {
+    width: 80vw;
+    margin: auto;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 45rem) {
+    .contact-form {
+      padding-inline: 3rem;
+    }
+  }

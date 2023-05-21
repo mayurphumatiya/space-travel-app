@@ -13,6 +13,7 @@
   align-items: flex-start;
   border-top: 2px dashed hsl(var(--clr-light) / 1);
   padding-block: 0.5em;
+  text-transform:uppercase
 }
 
 .login-btn {

@@ -9,6 +9,7 @@ import axios from "axios";
 import ApiRoutes from "../utils/ApiRoutes.json";
 import { useDispatch } from "react-redux";
 import { overlappin } from "../Store/Slices/OverlapSlice";
+import {toast} from "react-toastify"
 
 const Navbar = () => {
   const [openNav, setOpenNav] = useState<boolean>(false);
@@ -41,10 +42,11 @@ const Navbar = () => {
       if (response.status === 201) {
         clearUserData();
         navigate("/login");
+        toast.success(response.data.message)
       }
       setOpenNav(false);
-    } catch (e) {
-      console.log(e);
+    } catch (e : any) {
+      toast.error(e.response.data.message)
     }
   };
 
