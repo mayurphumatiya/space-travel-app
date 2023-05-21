@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { data } from "../utils/data";
 import "../styles/Destination.css";
 // import Dialog from "../components/Dialog";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { getOverlapSelector } from "../Store/Slices/OverlapSlice";
 import { useSelector } from "react-redux";
 
 const Destination = () => {
   const [toggleTab, setToggleTab] = useState<Number>(0);
   const stopAnimation = useSelector(getOverlapSelector);
+  const loggedUser = localStorage.getItem("token");
 
   const navigate = useNavigate();
 
@@ -17,7 +18,11 @@ const Destination = () => {
   };
 
   const bookNowClick = () => {
-    navigate("/login");
+    if (loggedUser) {
+      navigate("/checkout");
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -103,7 +108,7 @@ const Destination = () => {
             </button>
           </article>
         ))}
-      {/* {open && <Dialog setOpen={setOpen} />} */}
+      <Outlet />
     </div>
   );
 };

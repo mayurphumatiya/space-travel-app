@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "../styles/Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import ApiRoutes from "../utils/ApiRoutes.json"
+import ApiRoutes from "../utils/ApiRoutes.json";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [login, setLogin] = useState({
@@ -18,21 +19,25 @@ const Login = () => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
 
-  const persistLogin = (token:string, user:string) =>{
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', user)
-  }
- 
-  const handleSubmit = async(e: React.SyntheticEvent<EventTarget>) => {
+  const persistLogin = (token: string, user: string) => {
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", user);
+  };
+
+  const handleSubmit = async (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
-    try{
-      const response = await axios.post(`${ApiRoutes.url.local}${ApiRoutes.api.LOGIN}`, login);
-      if(response.status === 200){
+    try {
+      const response = await axios.post(
+        `${ApiRoutes.url.local}${ApiRoutes.api.LOGIN}`,
+        login
+      );
+      if (response.status === 200) {
         persistLogin(response.data.token, JSON.stringify(response.data.user));
-        navigate("/")
+        navigate("/");
+        toast.success(response.data.message)
       }
-    }catch(e){
-      console.log(e)
+    } catch (e) {
+      console.log(e);
     }
   };
 

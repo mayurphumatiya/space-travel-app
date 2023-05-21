@@ -33,7 +33,7 @@
 @media (min-width: 45em) {
   :root {
     /* font-sizes */
-    --fs-800: 6.25rem;
+    --fs-800: 5rem;
     --fs-700: 3.5rem;
     --fs-600: 2rem;
     --fs-500: 1.75rem;
@@ -94,11 +94,30 @@ select {
   font: inherit;
 }
 
+label {
+  font-size: 1.25rem;
+}
+
+select,
 input {
   background-color: hsl(var(--clr-light) / 0.075);
   border: none;
   color: hsl(var(--clr-light) / 1);
   width: 100%;
+  padding-block: 5px;
+  padding-inline: 10px;
+  border-radius: 2px;
+}
+
+option {
+  background-color: #000;
+  border: none;
+}
+
+.input-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 input::-webkit-outer-spin-button,
@@ -141,8 +160,13 @@ input::-webkit-inner-spin-button {
   --flow-space: 0.75rem;
 }
 
+.main-heading {
+  text-align: center;
+  padding: 20px 10px;
+}
+
 .container {
-  padding-inline: 2em;
+  padding-inline: 1rem;
   max-width: 80rem;
   margin-inline: auto;
 }
@@ -260,6 +284,37 @@ input::-webkit-inner-spin-button {
   margin-right: 0.5em;
   font-weight: 700;
   color: hsl(var(--clr-white) / 0.25);
+}
+
+/* BUTTONS */
+
+.cancel-btn {
+  border: 1.5px dashed hsl(var(--clr-light) / 1);
+  background-color: hsl(var(--clr-dark) / 0.05);
+  color: hsl(var(--clr-light) / 1);
+  cursor: pointer;
+  padding-block: 0.25em;
+  padding-inline: 0.5em;
+}
+.cancel-btn:hover {
+  background-color: hsl(var(--clr-light) / 1);
+  color: hsl(var(--clr-dark) / 1);
+}
+
+.next-btn {
+  border: 1.5px dashed hsl(var(--clr-light) / 1);
+  background-color: hsl(var(--clr-dark) / 0.05);
+  color: hsl(var(--clr-light) / 1);
+  cursor: pointer;
+  padding-block: 0.25em;
+  padding-inline: 0.5em;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.next-btn:hover {
+  background-color: hsl(var(--clr-light) / 1);
+  color: hsl(var(--clr-dark) / 1);
 }
 
 /* INDICATORS */
