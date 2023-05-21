@@ -1,5 +1,4 @@
 import "../styles/CustomerInfo.css"
-import Stepper from "./Stepper"
 
 const CustomerInfo = () => {
   return (
@@ -32,6 +31,10 @@ const CustomerInfo = () => {
             <div className='single-data uppercase'>
                 <label>Avg Dist</label>
                 <span>260000km</span>
+            </div>
+            <div className='single-data uppercase'>
+                <label>Price</label>
+                <span style={{color:"#B2A4FF"}}>80,000 &#8377;</span>
             </div>
         </div>
     </>

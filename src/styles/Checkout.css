@@ -1,6 +1,6 @@
 .checkout-ctn{
     display:flex;
-    padding: 1rem 3rem;
+    padding-inline:3rem;
 }
 
 @media (min-width:45rem){
@@ -10,6 +10,7 @@
         border: 5px solid hsl(var(--clr-light) / 0.05);
         width: 50vw;
         padding: 10px;
+        margin:auto;
       }
 }
 
