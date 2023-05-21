@@ -1,12 +1,27 @@
 import "../../styles/ContactInfo.css"
 
-const ContactInfo = () => {
+interface ContactInfoProps {
+  setCurrentStep:(val:number) => void;
+}
+
+const ContactInfo = (props:ContactInfoProps) => {
+
+
+  const handleSubmit =(e:React.SyntheticEvent<EventTarget>)=>{
+    e.preventDefault();
+    try{
+      props.setCurrentStep(3);
+    }catch(e){
+      console.log(e)
+    }
+  }
+
   return (
     <>
       <h1 className="main-heading fs-700 uppercase ff-sans-cond letter-spacing-2 text-white">
         Contact Details
       </h1>
-      <form className="contact-form flex fs-500 ff-sans-cond letter-spacing-2">
+      <form onSubmit={handleSubmit} className="contact-form flex fs-500 ff-sans-cond letter-spacing-2">
         <div className="input-div">
           <label className="uppercase">Email Id:</label>
           <input type="email" name="email" />

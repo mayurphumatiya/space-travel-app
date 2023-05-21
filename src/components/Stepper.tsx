@@ -1,22 +1,24 @@
-import { useState } from "react";
 import "../styles/Stepper.css";
-import { TiTick} from "react-icons/ti"
+import { TiTick} from "react-icons/ti";
 
-const Stepper = () => {
+interface StepperProps{
+  currentStep:number;
+}
+
+const Stepper = (props:StepperProps) => {
   const steps = ["Customer Info", "Contact Info", "Payment"];
-  const [currentStep, setCurrentStep] = useState(2);
-  const [complete, setComplete] = useState(false);
+
   return (
     <>
       <div className="steps-div">
         {steps?.map((steps, i) => (
           <div
             key={i}
-            className={`single-step ${currentStep === i + 1 && "active"} ${
-              (i + 1 < currentStep || complete) && "complete"
+            className={`single-step ${props.currentStep === i + 1 && "active"} ${
+              (i + 1 < props.currentStep) && "complete"
             }`}
           >
-            <div className="step">{(i+1 < currentStep || complete) ? <TiTick size={24} /> : i + 1 }</div>
+            <div className="step">{(i+1 < props.currentStep) ? <TiTick size={24} /> : i + 1 }</div>
             <p>{steps}</p>
           </div>
         ))}

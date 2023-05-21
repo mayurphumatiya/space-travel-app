@@ -1,10 +1,25 @@
 import "../../styles/Payment.css"
 
-const PayWithUPI = () => {
+interface PayWithUPIProps {
+    setCurrentStep:(val:number) => void;
+  }
+
+const PayWithUPI = (props:PayWithUPIProps) => {
+
+    const handleSubmit = (e:React.SyntheticEvent<EventTarget>) =>{
+        e.preventDefault();
+        try{
+            props.setCurrentStep(4);
+        }catch(e){
+            console.log(e)
+        }
+    }
+
   return (
     <>
       <form
         className="upi-form flex fs-500 ff-sans-cond letter-spacing-2"
+        onSubmit={handleSubmit}
       >
         <div className="input-div">
         <label>UPI ID:</label>

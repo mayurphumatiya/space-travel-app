@@ -1,11 +1,26 @@
 import React from "react";
 
-const PayWithCard = () => {
+interface PayWithCardProps {
+    setCurrentStep:(val:number) => void;
+  }
+
+const PayWithCard = (props:PayWithCardProps) => {
+
+const handleSubmit = (e:React.SyntheticEvent<EventTarget>) =>{
+    e.preventDefault();
+    try{
+        props.setCurrentStep(4);
+    }catch(e){
+        console.log(e)
+    }
+}
+
   return (
     <>
       <form
         className="flex fs-500 ff-sans-cond letter-spacing-2 uppercase"
         style={{ flexDirection: "column", paddingInline: "1rem" }}
+        onSubmit={handleSubmit}
       >
         <div className="input-div">
           <label>Card Number:</label>

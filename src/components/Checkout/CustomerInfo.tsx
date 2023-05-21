@@ -1,6 +1,20 @@
 import "../../styles/CustomerInfo.css";
 
-const CustomerInfo = () => {
+interface CustomerInfoProps {
+  setCurrentStep:(val:number) => void;
+}
+
+const CustomerInfo = (props : CustomerInfoProps) => {
+
+  const confirmDetails = (e:React.SyntheticEvent<EventTarget>) =>{
+    e.preventDefault();
+    try{
+      props.setCurrentStep(2);
+    }catch(e){
+      console.log(e)
+    }
+  }
+
   return (
     <>
       <h1 className="main-heading uppercase">Customer Info</h1>
@@ -38,7 +52,7 @@ const CustomerInfo = () => {
           </div>
           <div className="btn-div flex">
           <button className="cancel-btn uppercase">Cancel</button>
-          <button className="next-btn uppercase">Confirm</button>
+          <button className="next-btn uppercase" onClick={confirmDetails}>Confirm</button>
           </div>
       </div>
     </>
