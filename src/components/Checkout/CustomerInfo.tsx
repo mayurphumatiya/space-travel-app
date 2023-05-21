@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../../styles/CustomerInfo.css";
 
 interface CustomerInfoProps {
@@ -5,13 +6,18 @@ interface CustomerInfoProps {
 }
 
 const CustomerInfo = (props : CustomerInfoProps) => {
+  const [price, setPrice] = useState<number>(80000)
+  
+  const handleChange =(e:React.ChangeEvent<HTMLSelectElement>) =>{
+    setPrice(80000 * Number(e.target.value));
+  }
 
   const confirmDetails = (e:React.SyntheticEvent<EventTarget>) =>{
     e.preventDefault();
     try{
       props.setCurrentStep(2);
     }catch(e){
-      console.log(e)
+      console.log(e);
     }
   }
 
@@ -26,7 +32,7 @@ const CustomerInfo = (props : CustomerInfoProps) => {
           <div className="single-data uppercase">
             <label>Tickets</label>
             <span>
-              <select name="tickets">
+              <select name="tickets" onChange={handleChange}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -48,7 +54,7 @@ const CustomerInfo = (props : CustomerInfoProps) => {
           </div>
           <div className="single-data uppercase">
             <label>Price</label>
-            <span style={{ color: "#B2A4FF" }}>  &#8377;80,000</span>
+            <span style={{ color: "#B2A4FF" }}>  &#8377;{price}</span>
           </div>
           <div className="btn-div flex">
           <button className="cancel-btn uppercase">Cancel</button>
