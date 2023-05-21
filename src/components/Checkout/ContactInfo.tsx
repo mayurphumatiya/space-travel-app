@@ -24,7 +24,7 @@ const ContactInfo = (props:ContactInfoProps) => {
       <form onSubmit={handleSubmit} className="contact-form flex fs-500 ff-sans-cond letter-spacing-2">
         <div className="input-div">
           <label className="uppercase">Email Id:</label>
-          <input type="email" name="email" />
+          <input type="email" name="email"  required/>
           <span className="text-accent fs-200 letter-spacing-3">
             Your E-mail will only be used for sending ticket(s)
           </span>

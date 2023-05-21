@@ -19,7 +19,7 @@ const TicketDetails = (props:TicketsDetailsProps) => {
       </div>
       <div className="single-data uppercase">
         <label>Convenience Fees</label>
-        <span> &#8377;80000</span>
+        <span> &#8377;5000</span>
       </div>
       <div className="single-data uppercase">
         <label>Total </label>
