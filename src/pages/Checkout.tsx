@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { showNav } from "../Store/Slices/NavbarSlice";
 import "../styles/Checkout.css";
-import ContactUpdate from "../components/ContactUpdate";
 import Stepper from "../components/Stepper";
-import CustomerInfo from "../components/CustomerInfo";
+import CustomerInfo from "../components/Checkout/CustomerInfo";
+import ContactInfo from "../components/Checkout/ContactInfo";
+import Payment from "../components/Checkout/Payment";
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -24,8 +25,9 @@ const Checkout = () => {
         <div  className="checkout-ctn ">
           <div className="middle-container">
             <Stepper />
-            <CustomerInfo />
-            {/* <ContactUpdate /> */}
+            {/* <CustomerInfo /> */}
+            {/* <ContactInfo /> */}
+            <Payment />
           </div>
         </div>
       </div>

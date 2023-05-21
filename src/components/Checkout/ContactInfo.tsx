@@ -1,6 +1,6 @@
-import "../styles/ContactUpdate.css";
+import "../../styles/ContactUpdate.css"
 
-const ContactUpdate = () => {
+const ContactInfo = () => {
   return (
     <>
       <h1 className="main-heading fs-700 uppercase ff-sans-cond letter-spacing-2 text-white">
@@ -22,4 +22,4 @@ const ContactUpdate = () => {
   );
 };
 
-export default ContactUpdate;
+export default ContactInfo;

@@ -94,8 +94,8 @@ select {
   font: inherit;
 }
 
-label{
-  font-size:1.25rem;
+label {
+  font-size: 1.25rem;
 }
 
 select,
@@ -104,12 +104,12 @@ input {
   border: none;
   color: hsl(var(--clr-light) / 1);
   width: 100%;
-  padding-block:5px;
-  padding-inline:10px;
-  border-radius:2px;
+  padding-block: 5px;
+  padding-inline: 10px;
+  border-radius: 2px;
 }
 
-option{
+option {
   background-color: #000;
   border: none;
 }
@@ -117,7 +117,7 @@ option{
 .input-div {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 input::-webkit-outer-spin-button,
@@ -161,8 +161,8 @@ input::-webkit-inner-spin-button {
 }
 
 .main-heading {
-  text-align:center;
-  padding:20px 10px
+  text-align: center;
+  padding: 20px 10px;
 }
 
 .container {
@@ -284,6 +284,34 @@ input::-webkit-inner-spin-button {
   margin-right: 0.5em;
   font-weight: 700;
   color: hsl(var(--clr-white) / 0.25);
+}
+
+/* BUTTONS */
+
+.cancel-btn {
+  border: 1.5px dashed hsl(var(--clr-light) / 1);
+  background-color: hsl(var(--clr-dark) / 0.05);
+  color: hsl(var(--clr-light) / 1);
+  cursor: pointer;
+  padding-block: 0.25em;
+  padding-inline: 0.5em;
+}
+.cancel-btn:hover {
+  background-color: hsl(var(--clr-light) / 1);
+  color: hsl(var(--clr-dark) / 1);
+}
+
+.next-btn {
+  border: 1.5px dashed hsl(var(--clr-light) / 1);
+  background-color: hsl(var(--clr-dark) / 0.05);
+  color: hsl(var(--clr-light) / 1);
+  cursor: pointer;
+  padding-block: 0.25em;
+  padding-inline: 0.5em;
+}
+.next-btn:hover {
+  background-color: hsl(var(--clr-light) / 1);
+  color: hsl(var(--clr-dark) / 1);
 }
 
 /* INDICATORS */

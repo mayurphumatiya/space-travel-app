@@ -1,9 +1,20 @@
+.middle-container{
+    width:100vw;
+}
 .checkout-ctn{
     display:flex;
-    padding-inline:3rem;
+    padding-inline:1rem;
+}
+
+.btn-div{
+    padding:.5rem;
+    justify-content:space-between;
 }
 
 @media (min-width:45rem){
+    .checkout-ctn{
+        padding-inline:3rem;
+    }
     .middle-container {
         backdrop-filter: blur(0.5rem);
         border-radius: 10px;

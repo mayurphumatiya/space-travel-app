@@ -58,3 +58,10 @@
 .complete:not(:first-child):before {
     background-color:#B2A4FF;
   }
+
+
+  /* @media (max-width:45rem){
+    .single-step{
+      width: 30%;
+    }
+  } */
