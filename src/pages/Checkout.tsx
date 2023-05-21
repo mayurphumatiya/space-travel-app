@@ -6,6 +6,7 @@ import Stepper from "../components/Stepper";
 import CustomerInfo from "../components/Checkout/CustomerInfo";
 import ContactInfo from "../components/Checkout/ContactInfo";
 import Payment from "../components/Checkout/Payment";
+import CheckoutState from "../context/CheckoutContext";
 
 const Checkout = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -17,6 +18,7 @@ const Checkout = () => {
 
   return (
     <>
+    <CheckoutState>
       <div>
         <div>
           <h1 className="main-heading uppercase fs-700 ff-serif letter-spacing-1 text-accent">
@@ -36,6 +38,7 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+      </CheckoutState>
     </>
   );
 };

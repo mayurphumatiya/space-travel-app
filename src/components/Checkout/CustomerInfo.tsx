@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../../styles/CustomerInfo.css";
+import { checkoutContext } from "../../context/CheckoutContext";
 
 interface CustomerInfoProps {
   setCurrentStep:(val:number) => void;
 }
 
 const CustomerInfo = (props : CustomerInfoProps) => {
-  const [price, setPrice] = useState<number>(80000)
+  const [price, setPrice] = useState<number>(80000);
+
+  const ctx = useContext(checkoutContext)
   
   const handleChange =(e:React.ChangeEvent<HTMLSelectElement>) =>{
     setPrice(80000 * Number(e.target.value));
@@ -16,6 +19,7 @@ const CustomerInfo = (props : CustomerInfoProps) => {
     e.preventDefault();
     try{
       props.setCurrentStep(2);
+      console.log(ctx);
     }catch(e){
       console.log(e);
     }
