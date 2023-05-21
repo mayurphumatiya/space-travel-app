@@ -308,6 +308,9 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
   padding-block: 0.25em;
   padding-inline: 0.5em;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .next-btn:hover {
   background-color: hsl(var(--clr-light) / 1);

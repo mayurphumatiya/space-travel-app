@@ -3,7 +3,7 @@ import "../../styles/CustomerInfo.css";
 const CustomerInfo = () => {
   return (
     <>
-      <h1 className="main-heading">Customer Info</h1>
+      <h1 className="main-heading uppercase">Customer Info</h1>
       <div className="customer-container">
         <div className="single-data uppercase">
           <label>Name</label>
@@ -34,7 +34,7 @@ const CustomerInfo = () => {
           </div>
           <div className="single-data uppercase">
             <label>Price</label>
-            <span style={{ color: "#B2A4FF" }}>80,000 &#8377;</span>
+            <span style={{ color: "#B2A4FF" }}>  &#8377;80,000</span>
           </div>
           <div className="btn-div flex">
           <button className="cancel-btn uppercase">Cancel</button>
