@@ -81,6 +81,9 @@ const Register = () => {
                 value={register.password}
                 onChange={handleChange}
               />
+              <span className="text-accent fs-200 letter-spacing-3">
+                Password should be atleast 6 characters long
+              </span>
             </div>
           </div>
           <button
