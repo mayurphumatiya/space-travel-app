@@ -3,6 +3,7 @@ import "../styles/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ApiRoutes from "../utils/ApiRoutes.json";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [register, setRegister] = useState({
@@ -26,10 +27,14 @@ const Register = () => {
         `${ApiRoutes.url.local}${ApiRoutes.api.REGISTER}`,
         register
       );
-      console.log(response.data);
-      navigate("/login");
-    } catch (e) {
-      console.log(e);
+      if (response.data.status) {
+        navigate("/login");
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (e: any) {
+      toast.error(e.response.data.message);
     }
   };
 

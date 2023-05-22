@@ -31,10 +31,12 @@ const Login = () => {
         `${ApiRoutes.url.local}${ApiRoutes.api.LOGIN}`,
         login
       );
-      if (response.status === 200) {
+      if (response.data.status) {
         persistLogin(response.data.token, JSON.stringify(response.data.user));
         navigate("/");
-        toast.success(response.data.message)
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.message);
       }
     } catch (e) {
       console.log(e);

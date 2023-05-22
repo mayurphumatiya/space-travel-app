@@ -1,8 +1,7 @@
 {
     "url": {
-        "production": "",
-        "development": "",
-        "local": "http://localhost:5000/"
+        "production": "https://gorgeous-long-underwear-worm.cyclic.app/",
+        "local": "https://gorgeous-long-underwear-worm.cyclic.app/"
     },
     "api": {
         "REGISTER":"user/signup",

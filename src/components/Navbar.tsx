@@ -39,10 +39,12 @@ const Navbar = () => {
         user,
         { headers: headers }
       );
-      if (response.status === 201) {
+      if (response.data.status) {
         clearUserData();
         navigate("/login");
         toast.success(response.data.message)
+      }else{
+        toast.error(response.data.message)
       }
       setOpenNav(false);
     } catch (e : any) {
