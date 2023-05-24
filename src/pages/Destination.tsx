@@ -4,21 +4,24 @@ import "../styles/Destination.css";
 // import Dialog from "../components/Dialog";
 import { Outlet, useNavigate } from "react-router-dom";
 import { getOverlapSelector } from "../Store/Slices/OverlapSlice";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { saveDestination } from "../Store/Slices/DestinationSlice";
 
 const Destination = () => {
   const [toggleTab, setToggleTab] = useState<Number>(0);
   const stopAnimation = useSelector(getOverlapSelector);
   const loggedUser = localStorage.getItem("token");
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleTabs = (index: Number) => {
     setToggleTab(index);
   };
 
-  const bookNowClick = () => {
+  const bookNowClick = (dest: any) => {
     if (loggedUser) {
+      console.log(dest)
+      dispatch(saveDestination(dest));
       navigate("/checkout");
     } else {
       navigate("/login");
@@ -102,7 +105,7 @@ const Destination = () => {
             </div>
             <button
               className="bookBtn fs-600 uppercase ff-sans-cond letter-spacing-2"
-              onClick={bookNowClick}
+              onClick={() => bookNowClick(dest)}
             >
               book now
             </button>

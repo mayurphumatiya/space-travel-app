@@ -6,8 +6,10 @@ const CheckoutState = (props)=>{
     const [checkout, setCheckout] = useState({
         "destination":"",
         "tickets":null,
-        "price":80,
+        "price":800000,
         "totalPrice":null,
+        "travel":"",
+        "distance":""
     })
 
     return(
