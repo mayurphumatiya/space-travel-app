@@ -1,11 +1,14 @@
-import React, { useState } from "react";
-import { data } from "../utils/data";
+import React, { useEffect, useState } from "react";
 import "../styles/Destination.css";
 // import Dialog from "../components/Dialog";
 import { Outlet, useNavigate } from "react-router-dom";
 import { getOverlapSelector } from "../Store/Slices/OverlapSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { saveDestination } from "../Store/Slices/DestinationSlice";
+import {
+  getDestination,
+  saveDestination,
+} from "../Store/Slices/DestinationSlice";
+import { loadDestinations } from "../Store/Slices/DestinationApi";
 
 const Destination = () => {
   const [toggleTab, setToggleTab] = useState<Number>(0);
@@ -14,13 +17,15 @@ const Destination = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const state = useSelector(getDestination);
+
   const handleTabs = (index: Number) => {
     setToggleTab(index);
   };
 
   const bookNowClick = (dest: any) => {
     if (loggedUser) {
-      console.log(dest)
+      console.log(dest);
       dispatch(saveDestination(dest));
       navigate("/checkout");
     } else {
@@ -28,62 +33,46 @@ const Destination = () => {
     }
   };
 
+  useEffect(() => {
+    // @ts-ignore
+    dispatch(loadDestinations());
+  }, [dispatch]); //eslint-disable-line
+
   return (
     <div className="grid-container grid-container--destination flow">
       <h1 className="numbered-title">
         <span>01</span> Pick your destination
       </h1>
 
-      {data &&
-        data.destinations.map((dest, index) => (
+      {state.destinations &&
+        state?.destinations?.destination?.map((dest: any, index: any) => (
           <img
-            key={index}
+            key={dest.id}
             className={`${index !== toggleTab && "hide"} ${
               !stopAnimation.overlap && "animate"
             }`}
-            src={dest.images.webp}
+            src={dest.image}
             alt={dest.name}
           />
         ))}
 
       <div className="tab-list underline-indicators flex">
-        <button
-          className={`${
-            toggleTab === 0 && "active"
-          } uppercase ff-sans-cond text-accent letter-spacing-2`}
-          onClick={() => handleTabs(0)}
-        >
-          Moon
-        </button>
-        <button
-          className={`${
-            toggleTab === 1 && "active"
-          } uppercase ff-sans-cond text-accent letter-spacing-2`}
-          onClick={() => handleTabs(1)}
-        >
-          Mars
-        </button>
-        <button
-          className={`${
-            toggleTab === 2 && "active"
-          } uppercase ff-sans-cond text-accent letter-spacing-2`}
-          onClick={() => handleTabs(2)}
-        >
-          Europa
-        </button>
-        <button
-          className={`${
-            toggleTab === 3 && "active"
-          } uppercase ff-sans-cond text-accent letter-spacing-2`}
-          onClick={() => handleTabs(3)}
-        >
-          Titan
-        </button>
+        {state.destinations &&
+          state?.destinations?.destination?.map((dest: any, index: any) => (
+            <button
+              className={`${
+                toggleTab === index && "active"
+              } uppercase ff-sans-cond text-accent letter-spacing-2`}
+              onClick={() => handleTabs(index)}
+            >
+              {dest.name}
+            </button>
+          ))}
       </div>
-      {data &&
-        data.destinations.map((dest, index) => (
+      {state.destinations &&
+        state?.destinations?.destination?.map((dest: any, index: any) => (
           <article
-            key={index}
+            key={dest.id}
             className={`${index !== toggleTab && "hide"} ${
               !stopAnimation.overlap && "anime"
             } destination-info flow`}
@@ -100,7 +89,7 @@ const Destination = () => {
                 <h3 className="text-accent fs-200 uppercase">
                   Est. travel time
                 </h3>
-                <p className="ff-serif uppercase">{dest.travel}</p>
+                <p className="ff-serif uppercase">{dest.travel_time}</p>
               </div>
             </div>
             <button

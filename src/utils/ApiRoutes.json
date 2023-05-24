@@ -6,6 +6,7 @@
     "api": {
         "REGISTER":"user/signup",
         "LOGIN":"auth/login",
-        "LOGOUT":"auth/logout"
+        "LOGOUT":"auth/logout",
+        "LOAD_DESTINATIONS":"destination/"
     }
 }
