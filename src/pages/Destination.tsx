@@ -4,10 +4,7 @@ import "../styles/Destination.css";
 import { Outlet, useNavigate } from "react-router-dom";
 import { getOverlapSelector } from "../Store/Slices/OverlapSlice";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getDestination,
-  saveDestination,
-} from "../Store/Slices/DestinationSlice";
+import { getDestination } from "../Store/Slices/DestinationSlice";
 import { loadDestinations } from "../Store/Slices/DestinationApi";
 
 const Destination = () => {
@@ -25,9 +22,7 @@ const Destination = () => {
 
   const bookNowClick = (dest: any) => {
     if (loggedUser) {
-      console.log(dest);
-      dispatch(saveDestination(dest));
-      navigate("/checkout");
+      navigate(`/destination/${dest._id}`);
     } else {
       navigate("/login");
     }

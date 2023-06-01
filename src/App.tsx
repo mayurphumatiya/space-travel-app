@@ -60,7 +60,7 @@ function App() {
 
           {/* Protected Routes */}
           <Route element={<PrivateRoutes />}>
-            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/destination/:id" element={<Checkout />} />
           </Route>
         </Routes>
         <ToastContainer
