@@ -4,15 +4,16 @@ import { checkoutContext } from "../../context/CheckoutContext";
 
 interface CustomerInfoProps {
   setCurrentStep:(val:number) => void;
+  selDest:any;
 }
 
 const CustomerInfo = (props : CustomerInfoProps) => {
-  const [price, setPrice] = useState<number>(80000);
+  const [price, setPrice] = useState<number>(props.selDest.ticket_price);
 
   const ctx = useContext(checkoutContext)
   
   const handleChange =(e:React.ChangeEvent<HTMLSelectElement>) =>{
-    setPrice(80000 * Number(e.target.value));
+    setPrice(props.selDest.ticket_price * Number(e.target.value));
   }
 
   const confirmDetails = (e:React.SyntheticEvent<EventTarget>) =>{
@@ -46,15 +47,15 @@ const CustomerInfo = (props : CustomerInfoProps) => {
           </div>
           <div className="single-data uppercase">
             <label>Destination</label>
-            <span>Moon</span>
+            <span>{props.selDest.name}</span>
           </div>
           <div className="single-data uppercase">
             <label>Est. travel time </label>
-            <span>260000</span>
+            <span>{props.selDest.travel_time}</span>
           </div>
           <div className="single-data uppercase">
             <label>Avg Dist</label>
-            <span>260000km</span>
+            <span>{props.selDest.distance}</span>
           </div>
           <div className="single-data uppercase">
             <label>Price</label>

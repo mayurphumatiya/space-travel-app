@@ -1,11 +1,12 @@
 {
     "url": {
         "production": "https://gorgeous-long-underwear-worm.cyclic.app/",
-        "local": "https://gorgeous-long-underwear-worm.cyclic.app/"
+        "local": "http://localhost:5000/"
     },
     "api": {
         "REGISTER":"user/signup",
         "LOGIN":"auth/login",
-        "LOGOUT":"auth/logout"
+        "LOGOUT":"auth/logout",
+        "LOAD_DESTINATIONS":"destination/"
     }
 }
