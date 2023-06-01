@@ -43,7 +43,6 @@ function App() {
 
   useEffect(() => {
     changeBgImage();
-    console.log(nav);
   }, [location.pathname]); //eslint-disable-line
 
   return (
