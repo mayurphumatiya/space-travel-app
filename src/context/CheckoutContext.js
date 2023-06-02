@@ -2,23 +2,26 @@ import { createContext, useState } from "react";
 
 export const checkoutContext = createContext();
 
-const CheckoutState = (props)=>{
-    const [checkout, setCheckout] = useState({
-        "destination":"",
-        "tickets":null,
-        "price":800000,
-        "totalPrice":null,
-        "travel":"",
-        "distance":""
-    })
+const CheckoutState = (props) => {
+  const [checkout, setCheckout] = useState({
+    full_name: "",
+    destination: "",
+    tickets: null,
+    price: null,
+    totalPrice: null,
+    travel: "",
+    distance: "",
+    image: "",
+    email:""
+  });
 
-    return(
-        <>
-        <checkoutContext.Provider value={{checkout, setCheckout}}>
-            {props.children}
-        </checkoutContext.Provider>
-        </>
-    )
-}
+  return (
+    <>
+      <checkoutContext.Provider value={{ checkout, setCheckout }}>
+        {props.children}
+      </checkoutContext.Provider>
+    </>
+  );
+};
 
 export default CheckoutState;
