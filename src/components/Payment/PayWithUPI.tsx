@@ -1,19 +1,23 @@
-import "../../styles/Payment.css"
+import { useContext } from "react";
+import { checkoutContext } from "../../context/CheckoutContext";
+import "../../styles/Payment.css";
 
 interface PayWithUPIProps {
-    setCurrentStep:(val:number) => void;
-  }
+  setCurrentStep: (val: number) => void;
+}
 
-const PayWithUPI = (props:PayWithUPIProps) => {
+const PayWithUPI = (props: PayWithUPIProps) => {
+  const ctx = useContext(checkoutContext);
 
-    const handleSubmit = (e:React.SyntheticEvent<EventTarget>) =>{
-        e.preventDefault();
-        try{
-            props.setCurrentStep(4);
-        }catch(e){
-            console.log(e)
-        }
+  const handleSubmit = (e: React.SyntheticEvent<EventTarget>) => {
+    e.preventDefault();
+    try {
+      props.setCurrentStep(4);
+      console.log(ctx.checkout)
+    } catch (e) {
+      console.log(e);
     }
+  };
 
   return (
     <>
@@ -22,17 +26,14 @@ const PayWithUPI = (props:PayWithUPIProps) => {
         onSubmit={handleSubmit}
       >
         <div className="input-div">
-        <label>UPI ID:</label>
-        <input
-          type="upiId"
-          name="text"
-        />
-        <span className="text-accent fs-200 letter-spacing-3">
-           Add your Upi Id eg: tonystark@okicici
+          <label>UPI ID:</label>
+          <input type="upiId" name="text" required/>
+          <span className="text-accent fs-200 letter-spacing-3">
+            Add your UPI ID eg: "tonystark@okicici"
           </span>
         </div>
         <button type="submit" className="login-btn uppercase text-accent">
-         Pay &#8377;160000
+          Pay &#8377;{ctx.checkout.total_price}
         </button>
       </form>
     </>

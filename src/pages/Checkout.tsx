@@ -24,7 +24,6 @@ const Checkout = () => {
         `${ApiRoutes.url.local}${ApiRoutes.api.LOAD_DESTINATIONS}${id}`
       );
       if (response.data.status) {
-        console.log(response.data.destination)
         setSelDest(response.data.destination);
       } else {
         toast.error("There was a problem loading destination, Please try again later")
