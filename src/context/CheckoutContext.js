@@ -8,7 +8,7 @@ const CheckoutState = (props) => {
     destination: "",
     tickets: null,
     price: null,
-    totalPrice: null,
+    total_price: null,
     travel: "",
     distance: "",
     image: "",

@@ -13,6 +13,7 @@ const PayWithUPI = (props: PayWithUPIProps) => {
     e.preventDefault();
     try {
       props.setCurrentStep(4);
+      console.log(ctx.checkout)
     } catch (e) {
       console.log(e);
     }
