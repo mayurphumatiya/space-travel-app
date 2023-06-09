@@ -21,7 +21,7 @@ const Checkout = () => {
   const loadDestinationById = async () => {
     try {
       const response = await axios.get(
-        `${ApiRoutes.url.local}${ApiRoutes.api.LOAD_DESTINATIONS}${id}`
+        `${ApiRoutes.url.production}${ApiRoutes.api.LOAD_DESTINATIONS}${id}`
       );
       if (response.data.status) {
         setSelDest(response.data.destination);

@@ -24,7 +24,7 @@ const Register = () => {
       e.preventDefault();
 
       const response = await axios.post(
-        `${ApiRoutes.url.local}${ApiRoutes.api.REGISTER}`,
+        `${ApiRoutes.url.production}${ApiRoutes.api.REGISTER}`,
         register
       );
       if (response.data.status) {

@@ -35,7 +35,7 @@ const Navbar = () => {
         token: localStorage.getItem("token"),
       };
       const response = await axios.post(
-        `${ApiRoutes.url.local}${ApiRoutes.api.LOGOUT}`,
+        `${ApiRoutes.url.production}${ApiRoutes.api.LOGOUT}`,
         user,
         { headers: headers }
       );
