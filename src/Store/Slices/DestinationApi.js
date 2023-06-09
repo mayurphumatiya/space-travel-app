@@ -7,7 +7,7 @@ export const loadDestinations = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        `${ApiRoutes.url.local}${ApiRoutes.api.LOAD_DESTINATIONS}`
+        `${ApiRoutes.url.production}${ApiRoutes.api.LOAD_DESTINATIONS}`
       );
       return response.data;
     } catch (e) {

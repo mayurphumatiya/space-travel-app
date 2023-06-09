@@ -28,7 +28,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${ApiRoutes.url.local}${ApiRoutes.api.LOGIN}`,
+        `${ApiRoutes.url.production}${ApiRoutes.api.LOGIN}`,
         login
       );
       if (response.data.status) {
