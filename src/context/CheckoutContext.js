@@ -12,7 +12,10 @@ const CheckoutState = (props) => {
     travel: "",
     distance: "",
     image: "",
-    email:""
+    email:"",
+      paymentMethod:"",
+      cardNo:"",
+      upiId:""
   });
 
   return (

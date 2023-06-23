@@ -1,16 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { checkoutContext } from "../../context/CheckoutContext";
+import visa from "../../assets/shared/icons8-visa-48.png"
+import mastercard from "../../assets/shared/icons8-mastercard-48.png";
+import cvv from "../../assets/shared/icons8-card-48.png"
 
 interface PayWithCardProps {
   setCurrentStep: (val: number) => void;
 }
 
 const PayWithCard = (props: PayWithCardProps) => {
+  const [card, setCard] = useState<string>("");
   const ctx = useContext(checkoutContext);
+
+const handleChange =(e:React.ChangeEvent<HTMLInputElement>)=>{
+  setCard(e.target.value)
+  ctx.setCheckout({
+    ...ctx.checkout,
+      paymentMethod: "CARD",
+      cardNo: e.target.value,
+  });
+}
+
   const handleSubmit = (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
     try {
       props.setCurrentStep(4);
+      console.log(ctx.checkout)
     } catch (e) {
       console.log(e);
     }
@@ -24,12 +39,18 @@ const PayWithCard = (props: PayWithCardProps) => {
         onSubmit={handleSubmit}
       >
         <div className="input-div">
+          <div style={{display:"flex",gap:"10px",  alignItems:"center"}}>
           <label>Card Number:</label>
-          <input type="number" name="card_number" required/>
+            <img src={visa} alt="visa"  /><img src={mastercard} alt="mastercard" />
+          </div>
+          <input type="text" name="card_number" value={card} onChange={handleChange} maxLength={20} required/>
         </div>
-        <div className="input-div" style={{ width: "20%" }}>
+        <div className="input-div">
+          <div style={{display:"flex", alignItems:"center", gap:"10px"}}>
           <label>Card CVV:</label>
-          <input type="number" name="card_number" required/>
+          <img src={cvv} alt="cvv"  />
+          </div>
+          <input style={{width:"20%",paddingLeft:"10px"}} type="text" name="card_number" maxLength={3} required/>
         </div>
         <button type="submit" className="login-btn uppercase text-accent">
           Pay &#8377;{ctx.checkout.total_price}
