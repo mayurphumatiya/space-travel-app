@@ -7,6 +7,8 @@
         "REGISTER":"user/signup",
         "LOGIN":"auth/login",
         "LOGOUT":"auth/logout",
-        "LOAD_DESTINATIONS":"destination/"
+        "LOAD_DESTINATIONS":"destination/",
+        "TICKET_BOOKING":"ticket/book"
     }
 }
+

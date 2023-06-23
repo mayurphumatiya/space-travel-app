@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AiFillCreditCard } from "react-icons/ai";
 import { SiPaytm } from "react-icons/si";
 import { checkoutContext } from "../../context/CheckoutContext";
+import upi from "../../assets/shared/BhimUPI.png"
 
 interface TicketsDetailsProps {
   setPay: (val: string) => void;
@@ -16,6 +17,7 @@ const TicketDetails = (props: TicketsDetailsProps) => {
     ctx.setCheckout({
       ...ctx.checkout,
       total_price: ctx.checkout.price + 5000,
+      paymentMethod:"UPI"
     });
   };
 
@@ -52,7 +54,7 @@ const TicketDetails = (props: TicketsDetailsProps) => {
           <img
             width="28"
             height="28"
-            src="https://img.icons8.com/fluency/48/bhim.png"
+            src={upi}
             alt="bhim"
           />
           <SiPaytm style={{ marginLeft: "1rem" }} size={34} />
