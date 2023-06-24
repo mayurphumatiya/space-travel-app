@@ -25,7 +25,6 @@ const PayWithUPI = (props: PayWithUPIProps) => {
   const handleSubmit = async(e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
     try {
-      props.setCurrentStep(4);
       const headers = {
         token: localStorage.getItem(`token`),
       };
@@ -34,9 +33,10 @@ const PayWithUPI = (props: PayWithUPIProps) => {
         ctx.checkout,
         { headers: headers }
       );
-
+      
       if (response.data.status) {
-        toast.success(response.data.message);
+        props.setCurrentStep(4);
+        // toast.success(response.data.message);
       } else {
         toast.error(response.data.message);
       }

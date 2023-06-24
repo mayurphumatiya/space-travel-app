@@ -11,6 +11,7 @@ import axios from "axios";
 import ApiRoutes from "../utils/ApiRoutes.json";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import TicketsBooked from "../components/Checkout/TicketsBooked";
 
 const Checkout = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -42,14 +43,14 @@ const Checkout = () => {
     <>
       <CheckoutState>
         <div>
-          <div>
-            <h1 className="main-heading uppercase fs-700 ff-serif letter-spacing-1 text-accent">
+          <div style={{paddingBlock:"10px"}}>
+            {currentStep !== 4 && <h1 className="main-heading uppercase fs-700 ff-serif letter-spacing-1 text-accent">
               Checkout
-            </h1>
+            </h1>}
           </div>
           <div className="checkout-ctn ">
             <div className="middle-container">
-              <Stepper currentStep={currentStep} />
+              {currentStep !== 4 && <Stepper currentStep={currentStep} />}
               {currentStep === 1 && (
                 <CustomerInfo setCurrentStep={setCurrentStep} selDest={selDest} />
               )}
@@ -57,6 +58,7 @@ const Checkout = () => {
                 <ContactInfo setCurrentStep={setCurrentStep} />
               )}
               {currentStep === 3 && <Payment setCurrentStep={setCurrentStep} />}
+              {currentStep === 4 && <TicketsBooked />}
             </div>
           </div>
         </div>
