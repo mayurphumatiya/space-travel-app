@@ -27,7 +27,6 @@ const PayWithCard = (props: PayWithCardProps) => {
   const handleSubmit = async (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
     try {
-      props.setCurrentStep(4);
       const headers = {
         token: localStorage.getItem(`token`),
       };
@@ -35,10 +34,11 @@ const PayWithCard = (props: PayWithCardProps) => {
         `${ApiRoutes.url.production}${ApiRoutes.api.TICKET_BOOKING}`,
         ctx.checkout,
         { headers: headers }
-      );
-
-      if (response.data.status) {
-        toast.success(response.data.message);
+        );
+        
+        if (response.data.status) {
+        props.setCurrentStep(4);
+        // toast.success(response.data.message);
       } else {
         toast.error(response.data.message);
       }
