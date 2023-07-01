@@ -1,9 +1,8 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { checkoutContext } from "../../context/CheckoutContext";
 import "../../styles/Payment.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { bookingTickets } from "../../Store/Slices/TicketsAPIs";
-import { getTickets } from "../../Store/Slices/TicketSlice";
 
 interface PayWithUPIProps {
   setCurrentStep: (val: number) => void;
@@ -13,7 +12,6 @@ const PayWithUPI = (props: PayWithUPIProps) => {
   const [UPI, setUPI] = useState<string>("");
   const ctx = useContext(checkoutContext);
   const dispatch = useDispatch();
-  const state = useSelector(getTickets);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUPI(e.target.value);

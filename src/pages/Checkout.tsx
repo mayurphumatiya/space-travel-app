@@ -14,9 +14,11 @@ import { toast } from "react-toastify";
 import TicketsBooked from "../components/Checkout/TicketsBooked";
 import { RingLoader } from "react-spinners";
 import { getTickets } from "../Store/Slices/TicketSlice";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Checkout = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const [back, setBack] = useState(true);
   const [selDest, setSelDest] = useState({});
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -45,14 +47,22 @@ const Checkout = () => {
   }, []); //eslint-disable-line
 
   useEffect(() => {
-    console.log("STEP", currentStep);
+    if (currentStep === 1 || currentStep === 4) {
+      setBack(true);
+    }else{
+      setBack(false)
+    }
   }, [currentStep]);
+
+  const backClick = () => {
+    setCurrentStep(currentStep - 1);
+  };
 
   return (
     <>
       <CheckoutState>
         {state.isLoading ? (
-          <RingLoader size={120} color="#ca36d6" loading={state.isLoading} />
+          <RingLoader size={120} color="#36c7d6" loading={state.isLoading} />
         ) : (
           <div>
             <div style={{ paddingBlock: "10px" }}>
@@ -62,6 +72,19 @@ const Checkout = () => {
                 </h1>
               )}
             </div>
+            {!back && (
+              <span role="button" onClick={backClick}>
+                <IoMdArrowRoundBack
+                  fontSize={40}
+                  style={{
+                    position: "absolute",
+                    color: "#d2d8f9",
+                    cursor: "pointer",
+                  }}
+                />
+              </span>
+            )}
+
             <div className="checkout-ctn ">
               <div className="middle-container">
                 {currentStep !== 4 && <Stepper currentStep={currentStep} />}
