@@ -3,9 +3,8 @@ import { checkoutContext } from "../../context/CheckoutContext";
 import visa from "../../assets/shared/icons8-visa-48.png";
 import mastercard from "../../assets/shared/icons8-mastercard-48.png";
 import cvv from "../../assets/shared/icons8-card-48.png";
-import axios from "axios";
-import ApiRoutes from "../../utils/ApiRoutes.json";
-import { toast } from "react-toastify";
+import { bookingTickets } from "../../Store/Slices/TicketsAPIs";
+import { useDispatch } from "react-redux";
 
 interface PayWithCardProps {
   setCurrentStep: (val: number) => void;
@@ -13,6 +12,7 @@ interface PayWithCardProps {
 
 const PayWithCard = (props: PayWithCardProps) => {
   const [card, setCard] = useState<string>("");
+  const dispatch = useDispatch();
   const ctx = useContext(checkoutContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,25 +26,9 @@ const PayWithCard = (props: PayWithCardProps) => {
 
   const handleSubmit = async (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
-    try {
-      const headers = {
-        token: localStorage.getItem(`token`),
-      };
-      const response = await axios.post(
-        `${ApiRoutes.url.production}${ApiRoutes.api.TICKET_BOOKING}`,
-        ctx.checkout,
-        { headers: headers }
-        );
-        
-        if (response.data.status) {
-        props.setCurrentStep(4);
-        // toast.success(response.data.message);
-      } else {
-        toast.error(response.data.message);
-      }
-    } catch (e) {
-      console.log(e);
-    }
+    props.setCurrentStep(4);
+    // @ts-ignore
+    dispatch(bookingTickets(ctx.checkout));
   };
 
   return (

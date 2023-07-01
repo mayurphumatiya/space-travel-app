@@ -1,49 +1,32 @@
 import { useContext, useState } from "react";
 import { checkoutContext } from "../../context/CheckoutContext";
 import "../../styles/Payment.css";
-import axios from "axios";
-import ApiRoutes from "../../utils/ApiRoutes.json";
-import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { bookingTickets } from "../../Store/Slices/TicketsAPIs";
 
 interface PayWithUPIProps {
   setCurrentStep: (val: number) => void;
 }
 
 const PayWithUPI = (props: PayWithUPIProps) => {
-  const [UPI, setUPI] = useState<string>("")
+  const [UPI, setUPI] = useState<string>("");
   const ctx = useContext(checkoutContext);
+  const dispatch = useDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  setUPI(e.target.value)
-  ctx.setCheckout({
-    ...ctx.checkout,
+    setUPI(e.target.value);
+    ctx.setCheckout({
+      ...ctx.checkout,
       paymentMethod: "UPI",
       upiId: e.target.value,
-  });
+    });
   };
 
-  const handleSubmit = async(e: React.SyntheticEvent<EventTarget>) => {
+  const handleSubmit = async (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
-    try {
-      const headers = {
-        token: localStorage.getItem(`token`),
-      };
-      const response = await axios.post(
-        `${ApiRoutes.url.production}${ApiRoutes.api.TICKET_BOOKING}`,
-        ctx.checkout,
-        { headers: headers }
-      );
-      
-      if (response.data.status) {
-        props.setCurrentStep(4);
-        // toast.success(response.data.message);
-      } else {
-        toast.error(response.data.message);
-      }
-      console.log(ctx.checkout);
-    } catch (e) {
-      console.log(e);
-    }
+    props.setCurrentStep(4);
+    // @ts-ignore
+    dispatch(bookingTickets(ctx.checkout));
   };
 
   return (

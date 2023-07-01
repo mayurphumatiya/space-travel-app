@@ -1,6 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import "../../styles/CustomerInfo.css";
 import { checkoutContext } from "../../context/CheckoutContext";
+import { useNavigate } from "react-router-dom";
+import { showNav } from "../../Store/Slices/NavbarSlice";
+import { useDispatch } from "react-redux";
 
 interface CustomerInfoProps {
   setCurrentStep: (val: number) => void;
@@ -10,7 +13,8 @@ interface CustomerInfoProps {
 const CustomerInfo = (props: CustomerInfoProps) => {
   const [price, setPrice] = useState<number>(props.selDest.ticket_price);
   const [ticket, setTicket] = useState("1");
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   // @ts-ignore
   let user = JSON.parse(localStorage.getItem("user"));
   let name = user.first_name + " " + user.last_name;
@@ -26,18 +30,24 @@ const CustomerInfo = (props: CustomerInfoProps) => {
     e.preventDefault();
     try {
       props.setCurrentStep(2);
-      ctx.setCheckout({...ctx.checkout,
+      ctx.setCheckout({
+        ...ctx.checkout,
         full_name: name,
         destination: props.selDest.name,
         tickets: ticket,
         price: price,
         travel: props.selDest.travel_time,
         distance: props.selDest.distance,
-        image:props.selDest.image
+        image: props.selDest.image,
       });
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const handleCancel = () => {
+    dispatch(showNav(true));
+    navigate("/");
   };
 
   useEffect(() => {
@@ -80,7 +90,9 @@ const CustomerInfo = (props: CustomerInfoProps) => {
           <span style={{ color: "#B2A4FF" }}> &#8377;{price}</span>
         </div>
         <div className="btn-div flex">
-          <button className="cancel-btn uppercase">Cancel</button>
+          <button className="cancel-btn uppercase" onClick={handleCancel}>
+            Cancel
+          </button>
           <button className="next-btn uppercase" onClick={confirmDetails}>
             Confirm
           </button>

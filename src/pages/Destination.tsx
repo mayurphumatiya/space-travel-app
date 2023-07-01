@@ -6,6 +6,7 @@ import { getOverlapSelector } from "../Store/Slices/OverlapSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getDestination } from "../Store/Slices/DestinationSlice";
 import { loadDestinations } from "../Store/Slices/DestinationApi";
+import { RingLoader } from "react-spinners";
 
 const Destination = () => {
   const [toggleTab, setToggleTab] = useState<Number>(0);
@@ -34,6 +35,8 @@ const Destination = () => {
   }, [dispatch]); //eslint-disable-line
 
   return (
+    <>
+   {state.isLoading ? <RingLoader size={150} color="#36c7d6" loading={state.isLoading} /> :
     <div className="grid-container grid-container--destination flow">
       <h1 className="numbered-title">
         <span>01</span> Pick your destination
@@ -96,7 +99,8 @@ const Destination = () => {
           </article>
         ))}
       <Outlet />
-    </div>
+    </div>}
+    </>
   );
 };
 
