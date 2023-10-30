@@ -3,6 +3,7 @@ import "../styles/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ApiRoutes from "../utils/ApiRoutes.json";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [register, setRegister] = useState({
@@ -23,13 +24,17 @@ const Register = () => {
       e.preventDefault();
 
       const response = await axios.post(
-        `${ApiRoutes.url.local}${ApiRoutes.api.REGISTER}`,
+        `${ApiRoutes.url.production}${ApiRoutes.api.REGISTER}`,
         register
       );
-      console.log(response.data);
-      navigate("/login");
-    } catch (e) {
-      console.log(e);
+      if (response.data.status) {
+        navigate("/login");
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (e: any) {
+      toast.error(e.response.data.message);
     }
   };
 
@@ -76,6 +81,9 @@ const Register = () => {
                 value={register.password}
                 onChange={handleChange}
               />
+              <span className="text-accent fs-200 letter-spacing-3">
+                Password should be atleast 6 characters long
+              </span>
             </div>
           </div>
           <button

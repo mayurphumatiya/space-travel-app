@@ -35,14 +35,16 @@ const Navbar = () => {
         token: localStorage.getItem("token"),
       };
       const response = await axios.post(
-        `${ApiRoutes.url.local}${ApiRoutes.api.LOGOUT}`,
+        `${ApiRoutes.url.production}${ApiRoutes.api.LOGOUT}`,
         user,
         { headers: headers }
       );
-      if (response.status === 201) {
+      if (response.data.status) {
         clearUserData();
         navigate("/login");
         toast.success(response.data.message)
+      }else{
+        toast.error(response.data.message)
       }
       setOpenNav(false);
     } catch (e : any) {
