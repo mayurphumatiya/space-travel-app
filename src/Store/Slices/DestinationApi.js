@@ -11,7 +11,7 @@ export const loadDestinations = createAsyncThunk(
       );
       return response.data;
     } catch (e) {
-      return rejectWithValue(e);
+      return rejectWithValue(e.response.data || e.message || "Something went wrong");
     }
   }
 );

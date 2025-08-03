@@ -1,7 +1,7 @@
 {
     "url": {
-        "production": "https://gorgeous-long-underwear-worm.cyclic.app/",
-        "local": "http://localhost:5000/"
+        "production": "https://space-travel-backend.onrender.com/",
+        "local": "http://localhost:8080/"
     },
     "api": {
         "REGISTER":"user/signup",
