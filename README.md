@@ -16,7 +16,6 @@ Live Demo: [https://dev--spacex-travel.netlify.app](https://dev--spacex-travel.n
 ## 🌠 Key Features
 
 - 🔭 **Effortless Booking**: Seamless UI for selecting and reserving your space journey.
-- 🔐 **Secure Infrastructure**: Robust backend built with Node.js to simulate safe and trusted bookings.
 - 💫 **Interactive UI**: Engaging transitions, animations, and responsive design.
 - 👩‍🚀 **Mission Pages**: Detailed information for each space destination.
 - 📱 **Fully Responsive**: Works beautifully on both desktop and mobile devices.
@@ -27,9 +26,7 @@ Live Demo: [https://dev--spacex-travel.netlify.app](https://dev--spacex-travel.n
 
 | Frontend | Backend | Deployment |
 |----------|---------|------------|
-| React + Vite | Node.js (mocked API) | Netlify |
-| Styled Components / Tailwind | Express.js (mocked) | — |
-| React Router | — | — |
+| React | Node.js | Netlify/Render |
 
 ---
 
