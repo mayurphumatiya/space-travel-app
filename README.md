@@ -3,6 +3,8 @@
 > A futuristic web platform for booking your dream journey into space.  
 > Built using **React** and **Node.js**, this project simulates a fully interactive space travel booking experience.
 
+
+
 <img width="1280" height="720" alt="space-travel" src="https://github.com/user-attachments/assets/3fc37c02-0cb5-4279-ab08-cc504c0f9541" />
 
 ---
@@ -33,14 +35,16 @@
 ## 📸 Screenshots
 
 > You can add screenshots here later by uploading them and using the format below:
-### Home Page
+### Home Page:
+
 <img width="1498" height="858" alt="Screenshot 2025-08-04 at 20 19 45" src="https://github.com/user-attachments/assets/eda422d2-0569-4446-8a0c-688509ea8c2a" />
 
-### Destination Page
+### Destination Page:
+
 <img width="1497" height="850" alt="Screenshot 2025-08-04 at 20 21 44" src="https://github.com/user-attachments/assets/69932bd1-a07f-44d7-9c02-9219658018a6" />
 
 
 ## 📝 Blog Post
 
 Read about the thought process, challenges, and lessons learned while building this project:  
-👉 [Behind the Build: Space Tourism Web App]([https://your-blog-platform.com/space-tourism-writeup](https://mayurphumatiya.hashnode.dev/space-tourism-for-all-a-seamless-space-travel-app))
+👉 [Behind the Build: Space Tourism Web App](https://mayurphumatiya.hashnode.dev/space-tourism-for-all-a-seamless-space-travel-app)
