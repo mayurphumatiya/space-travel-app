@@ -1,4 +1,4 @@
-# 🌌 Space Tourism: Book Your Next Adventure Among the Stars
+# Space Tourism: Book Your Next Adventure Among the Stars
 
 > A futuristic web platform for booking your dream journey into space.  
 > Built using **React** and **Node.js**, this project simulates a fully interactive space travel booking experience.
@@ -9,13 +9,13 @@
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 
 **Space-Tourism** is a revolutionary travel interface designed to let users explore and book trips to space destinations — whether that's the Moon, Mars, Europa, or beyond. It blends clean UI, smooth user experience, and modern web technologies to create an unforgettable journey right from your browser.
 
 ---
 
-## 🌠 Key Features
+## Key Features
 
 - 🔭 **Effortless Booking**: Seamless UI for selecting and reserving your space journey.
 - 💫 **Interactive UI**: Engaging transitions, animations, and responsive design.
@@ -24,7 +24,7 @@
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | Frontend | Backend | Deployment |
 |----------|---------|------------|
@@ -32,7 +32,7 @@
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Home Page:
 
@@ -43,7 +43,7 @@
 <img width="1497" height="850" alt="Screenshot 2025-08-04 at 20 21 44" src="https://github.com/user-attachments/assets/69932bd1-a07f-44d7-9c02-9219658018a6" />
 
 
-## 📝 Blog Post
+## Blog Post
 
 Read about the thought process, challenges, and lessons learned while building this project:  
 👉 [Behind the Build: Space Tourism Web App](https://mayurphumatiya.hashnode.dev/space-tourism-for-all-a-seamless-space-travel-app)
