@@ -34,7 +34,6 @@
 
 ## 📸 Screenshots
 
-> You can add screenshots here later by uploading them and using the format below:
 ### Home Page:
 
 <img width="1498" height="858" alt="Screenshot 2025-08-04 at 20 19 45" src="https://github.com/user-attachments/assets/eda422d2-0569-4446-8a0c-688509ea8c2a" />
